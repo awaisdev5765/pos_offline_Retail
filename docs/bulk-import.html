@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بلک امپورٹ گائیڈ - کسٹمر اور سپلائر</title>
+  <meta name="description" content="آف لائن POS میں کسٹمر اور سپلائر ریکارڈ بلک امپورٹ کرنے کی مکمل اردو گائیڈ" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2346b4b8'/%3E%3Cpath d='M20 33h24M32 21v24' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg: #f0f7ff;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #0ea5e9;
+      --accent-2: #22c55e;
+      --shadow: 0 20px 60px rgba(15, 118, 143, 0.12);
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at top, #d8f3ff 0%, #eef6ff 60%, #f9fbff 100%);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    .wrapper {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    .hero {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, rgba(14,165,233,0.12), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(34,197,94,0.12), transparent 55%);
+      z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 32px;
+      color: #0f172a;
+    }
+    .lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 28px;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      color: #0f172a;
+    }
+    h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+      color: #0f172a;
+    }
+    ol, ul {
+      margin: 0;
+      padding-right: 20px;
+    }
+    ol li, ul li {
+      margin-bottom: 10px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid;
+    }
+    .pill.green { color: #15803d; border-color: rgba(21,128,61,0.3); background: rgba(22,163,74,0.08); }
+    .pill.yellow { color: #b45309; border-color: rgba(180,83,9,0.3); background: rgba(251,191,36,0.15); }
+    .pill.gray { color: #475569; border-color: rgba(148,163,184,0.5); background: rgba(148,163,184,0.15); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+      direction: rtl;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: right;
+    }
+    th {
+      color: #0f172a;
+      font-weight: 600;
+      background: #f8fafc;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(14,165,233,0.3);
+      text-decoration: none;
+    }
+    .btn:focus-visible {
+      outline: 3px solid rgba(14,165,233,0.4);
+      outline-offset: 3px;
+    }
+    .btn + .btn {
+      margin-right: 12px;
+    }
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .note {
+      background: #ecfeff;
+      border: 1px solid #bae6fd;
+      border-radius: 14px;
+      padding: 16px;
+      color: #0369a1;
+      margin-bottom: 18px;
+    }
+    .steps {
+      list-style: decimal;
+      padding-right: 18px;
+    }
+    .steps li strong { color: #0f172a; }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      margin-top: 40px;
+      font-size: 13px;
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 26px; }
+      .card { padding: 18px; }
+    }
+  </style>
+  <script>
+    function downloadCSV(name, rows) {
+      const csv = rows.map(r => r.map(v => '"' + String(v ?? '').replace(/"/g, '""') + '"').join(',')).join('\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = name;
+      link.click();
+    }
+  </script>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="tagline">💡 100٪ آف لائن POS کیلئے دوستانہ رہنمائی</div>
+        <h1>📥 بلک امپورٹ گائیڈ (کسٹمر + سپلائر)</h1>
+        <p class="lead">اس صفحے میں مکمل اردو میں بتایا گیا ہے کہ کس طرح Excel (.xlsx) فائل کے ذریعے درجنوں کسٹمر یا سپلائر چند منٹ میں امپورٹ کیے جا سکتے ہیں۔</p>
+      </div>
+    </section>
+
+    <div class="card" style="margin-top:28px;">
+      <h2>مرحلہ 0 — امپورٹ سے پہلے لازمی تیاری</h2>
+      <ul>
+        <li>ایک شیٹ صرف کسٹمر کیلئے اور دوسری سپلائر کیلئے رکھیں۔ ہر شیٹ کی پہلی قطار (Row 1) ہمیشہ ہیڈر ہوگی۔</li>
+        <li>ہیڈر نام بالکل اسی طرح لکھیں جیسے نیچے جدول میں دیے گئے ہیں۔ اسپیلنگ یا اضافی اسپیس امپورٹ کو ناکام کر دیتی ہے۔</li>
+        <li>فائل کو <strong>Excel Workbook (.xlsx)</strong> میں سیو کریں۔ اگر CSV ہے تو پہلے Excel/Google Sheets میں کھول کر XLSX کے طور پر محفوظ کریں۔</li>
+        <li>امپورٹ سے پہلے Settings → Utilities → Backup پر جا کر بیک اپ لیں تاکہ غلطی کی صورت میں واپس جا سکیں۔</li>
+        <li>ڈیسک ٹاپ یا لیپ ٹاپ سے امپورٹ کریں۔ موبائل براؤزر اکثر فائل ڈائیلاگ بلاک کر دیتے ہیں۔</li>
+      </ul>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>👥 کسٹمر امپورٹ (Customers.xlsx)</h2>
+        <div class="note">یہ طریقہ نئے کسٹمر بنانے اور موجودہ کسٹمر اپڈیٹ کرنے دونوں کیلئے کام کرتا ہے۔ فون نمبر میچ ہونے پر ڈپلیکیٹ نہیں بنتا۔</div>
+        <ol class="steps">
+          <li><strong>Customers</strong> اسکرین کھولیں → اوپر دائیں کونے پر موجود <strong>⋮ مینو</strong> → <strong>Bulk Import</strong>۔</li>
+          <li>نیچے موجود <strong>سانچہ ڈاؤن لوڈ کریں</strong> بٹن سے CSV حاصل کریں، Excel میں کھولیں اور اپنی معلومات بھریں۔</li>
+          <li>نام لازمی، فون انتہائی تجویز کردہ۔ فون ایک ہی ہوا تو ریکارڈ اپڈیٹ ہوگا، ورنہ نیا کسٹمر بنے گا۔</li>
+          <li><strong>File → Save As → Excel Workbook (.xlsx)</strong> منتخب کریں۔ فائل کا نام مثلاً <strong>customers-import.xlsx</strong> رکھیں۔</li>
+          <li>POS میں واپس آ کر <strong>Upload</strong> بٹن دبائیں، فائل منتخب کریں اور نتائج کے ڈائیلاگ میں کامیاب/اسکپڈ قطاریں نوٹ کریں۔</li>
+        </ol>
+        <p style="margin-top:16px;">ہیڈر ہمیشہ اس ترتیب میں ہوں:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ستون</th>
+              <th>تفصیل</th>
+              <th>مثال</th>
+              <th>حالت</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>کسٹمر کا پورا نام</td>
+              <td>محمد کاشف</td>
+              <td><span class="pill green">لازمی</span></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>رابطہ نمبر (ڈپلیکیٹ چیک)</td>
+              <td>03001234567</td>
+              <td><span class="pill yellow">بہت اہم</span></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>شہر یا مکمل پتہ</td>
+              <td>لاہور، پاکستان</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Opening Due</td>
+              <td>ابتدائی بقایا رقم (اعداد میں)</td>
+              <td>15000.50</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:18px;">
+          <button class="btn" onclick="downloadCSV('customer_template.csv', [[ 'Name','Phone','Address','Opening Due' ], ['محمد کاشف','03001234567','لاہور','15000']])">
+            📄 کسٹمر سانچہ ڈاؤن لوڈ کریں
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🏢 سپلائر امپورٹ (Suppliers.xlsx)</h2>
+        <div class="note">سپلائر کا نام یونیک سمجھا جاتا ہے۔ اگر نام میچ کرے تو اسی ریکارڈ کو اپڈیٹ کیا جائے گا۔ پہلے سے موجود سپلائر فہرست بھی چیک کر لیں۔</div>
+        <ol class="steps">
+          <li><strong>Suppliers</strong> اسکرین → <strong>⋮</strong> مینو → <strong>Bulk Import</strong>۔</li>
+          <li>سانچہ ڈاؤن لوڈ کر کے Excel میں کھولیں۔ پہلی قطار تبدیل نہ کریں۔</li>
+          <li>صرف وہی کالم بھریں جو دستیاب ہوں۔ خالی خانہ سسٹم خود چھوڑ دیتا ہے۔</li>
+          <li>فائل کو <strong>.xlsx</strong> میں محفوظ کریں، پھر Upload بٹن کے ذریعے امپورٹ کریں۔</li>
+          <li>نتائج میں Inserted/Updated/Skipped کی گنتی دیکھیں اور کسی بھی Error Row کو درست کر کے دوبارہ امپورٹ کریں۔</li>
+        </ol>
+        <p style="margin-top:16px;">ہیڈر کی مکمل فہرست:</p>
+        <table>
+          <thead>
+            <tr>
+              <th>ستون</th>
+              <th>تفصیل</th>
+              <th>مثال</th>
+              <th>حالت</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>سپلائر کا قانونی نام</td>
+              <td>ABC Traders</td>
+              <td><span class="pill green">لازمی</span></td>
+            </tr>
+            <tr>
+              <td>Phone</td>
+              <td>رابطہ نمبر</td>
+              <td>03123456789</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Address</td>
+              <td>پتہ یا شہر</td>
+              <td>کراچی</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Contact Person</td>
+              <td>بااختیار نمائندہ</td>
+              <td>جناب وقار</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td>ای میل ایڈریس</td>
+              <td>info@abc.com</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>City / State / Country / Zip Code</td>
+              <td>جغرافیائی تفصیلات</td>
+              <td>لاہور / پنجاب / پاکستان / 54000</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Credit Limit</td>
+              <td>دی گئی زیادہ سے زیادہ حد</td>
+              <td>500000</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Credit Days</td>
+              <td>ادائیگی کا دورانیہ (دن)</td>
+              <td>30</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Payment Terms</td>
+              <td>Net 30، Advance وغیرہ</td>
+              <td>Net 30</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>کوئی اضافی ہدایت</td>
+              <td>Preferred vendor</td>
+              <td><span class="pill gray">اختیاری</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:18px;">
+          <button class="btn" onclick="downloadCSV('supplier_template.csv', [[ 'Name','Phone','Address','Contact Person','Email','City','State','Country','Zip Code','Credit Limit','Credit Days','Payment Terms','Notes' ], ['ABC Traders','03123456789','کراچی','جناب وقار','info@abc.com','کراچی','سندھ','پاکستان','74200','500000','30','Net 30','Preferred vendor']])">
+            🧾 سپلائر سانچہ ڈاؤن لوڈ کریں
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:28px;">
+      <h2>✅ امپورٹ مکمل ہونے کے بعد 5 منٹ کا چیک</h2>
+      <ol class="steps">
+        <li>Customers یا Suppliers فہرست کو <strong>Last Updated</strong> کے مطابق ترتیب دیں اور دیکھیں کہ نئے اندراج اوپر نظر آئیں۔</li>
+        <li>کم از کم دو ریکارڈ کھول کر فون، پتہ اور بقایا رقم درست ہیں یا نہیں۔</li>
+        <li>اگر Opening Due ڈالا تھا تو Customer Ledger کھول کر Opening Balance سے موازنہ کریں۔</li>
+        <li>Error والے قطاروں کا نمبر ڈائیلاگ میں لکھا ہوگا؛ Excel میں اسی قطار کو درست کر کے دوبارہ امپورٹ کریں۔</li>
+        <li>جب سب کچھ درست لگے تو دوبارہ بیک اپ لیں تاکہ یہ صاف حالت محفوظ ہو جائے۔</li>
+      </ol>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h2>🛠️ عام مسائل اور فوری حل</h2>
+      <ul>
+        <li><strong>ہیڈر ایرر:</strong> اگر “Invalid headers” آئے تو یقینی بنائیں کہ Row 1 میں کوئی اضافی اسپیس یا مختلف اسپیلنگ نہیں۔</li>
+        <li><strong>فون موجود نہیں:</strong> کسٹمر کیلئے فون نہ دینے پر نیا ریکارڈ تو بن جائے گا مگر بعد میں ڈپلیکیٹ بن سکتے ہیں۔ بہتر یہی ہے کہ نمبر لازمی دیں۔</li>
+        <li><strong>نمبر/رقم میں علامت:</strong> رقم میں صرف ہندسہ، ڈاٹس یا کاما رکھیں۔ Rs، PKR، یا اسپیس شامل نہ کریں۔</li>
+        <li><strong>فائل نہیں کھل رہی:</strong> XLSX فارمٹ لازمی ہے۔ Google Sheets میں “Download → Microsoft Excel (.xlsx)” استعمال کریں۔</li>
+        <li><strong>غلط ڈیٹا امپورٹ ہوگیا:</strong> Backup سے بحال کریں یا متعلقہ کسٹمر/سپلائر کھول کر دستی طور پر درست کریں۔</li>
+      </ul>
+    </div>
+
+    <footer class="footer">
+      © 2025 Offline POS — بلک امپورٹ گائیڈ (اردو). یہ صفحہ صرف رہنمائی کیلئے ہے، آن لائن اشتراک کی ضرورت نہیں۔
+    </footer>
+  </div>
+</body>
+</html>
+

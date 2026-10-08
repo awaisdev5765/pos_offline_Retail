@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking System Guide | بینکنگ سسٹم گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .guide-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .step-visual {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-visual.dark-theme {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .visual-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .visual-header {
+            border-color: #334155;
+        }
+        
+        .visual-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .visual-title {
+            color: #e2e8f0;
+        }
+        
+        .form-preview {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed #3b82f6;
+        }
+        
+        .dark-theme .form-preview {
+            background: #0f172a;
+            border-color: #3b82f6;
+        }
+        
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        
+        .dark-theme .form-label {
+            color: #e2e8f0;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .dark-theme .form-input {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .btn-secondary {
+            background: #1e293b;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .dark-theme .tips-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-left-color: #3b82f6;
+        }
+        
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-icon {
+            color: #3b82f6;
+            font-size: 1.25rem;
+        }
+        
+        .tips-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .tips-title {
+            color: #e2e8f0;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1.25rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #1d4ed8;
+        }
+        
+        .dark-theme .back-button {
+            color: #60a5fa;
+        }
+        
+        .dark-theme .back-button:hover {
+            color: #3b82f6;
+        }
+        
+        .bank-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .bank-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .bank-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .bank-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .bank-name {
+            color: #e2e8f0;
+        }
+        
+        .bank-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-inactive {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+        
+        .bank-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+        
+        .dark-theme .detail-item {
+            color: #94a3b8;
+        }
+        
+        .detail-icon {
+            color: #3b82f6;
+        }
+        
+        .balance-display {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .balance-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .balance-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="index.html#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span class="en">Back to Main Guide</span>
+                <span class="ur" style="display: none;">مین گائیڈ پر واپس</span>
+            </a>
+            <h1>
+                <span class="en">Banking System Guide</span>
+                <span class="ur" style="display: none;">بینکنگ سسٹم گائیڈ</span>
+            </h1>
+            <p>
+                <span class="en">Learn how to set up and manage bank accounts in your POS system</span>
+                <span class="ur" style="display: none;">اپنے پوس سسٹم میں بینک اکاؤنٹس سیٹ اپ اور انتظام کرنا سیکھیں</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="guides">
+        <div class="container">
+            <!-- Adding Bank Accounts -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Adding Bank Accounts</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹس شامل کرنا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Step-by-step guide to add and configure bank accounts</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹس شامل اور کنفیگر کرنے کا قدم بہ قدم گائیڈ</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 1: Navigate to Banking System</span>
+                                <span class="ur" style="display: none;">قدم 1: بینکنگ سسٹم میں جائیں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">From the main dashboard, click on the "Banking System" or "Bank Accounts" section. This will take you to the banking management area.</span>
+                            <span class="ur" style="display: none;">مین ڈیش بورڈ سے، "بینکنگ سسٹم" یا "بینک اکاؤنٹس" سیکشن پر کلک کریں۔ یہ آپ کو بینکنگ کے انتظام کے علاقے میں لے جائے گا۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 2: Click Add Bank</span>
+                                <span class="ur" style="display: none;">قدم 2: بینک شامل کریں پر کلک کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Look for the "Add Bank" or "+" button, usually located at the top of the banks list.</span>
+                            <span class="ur" style="display: none;">"بینک شامل کریں" یا "+" بٹن تلاش کریں، جو عام طور پر بینکس کی فہرست کے اوپر ہوتا ہے۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 3: Fill Bank Information</span>
+                                <span class="ur" style="display: none;">قدم 3: بینک کی معلومات بھریں</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-preview">
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Bank Name *</span>
+                                    <span class="ur" style="display: none;">بینک کا نام *</span>
+                                </label>
+                                <input type="text" class="form-input" placeholder="Enter bank name" placeholder-ur="بینک کا نام درج کریں">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Bank Code *</span>
+                                        <span class="ur" style="display: none;">بینک کوڈ *</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Bank code" placeholder-ur="بینک کوڈ">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Account Number</span>
+                                        <span class="ur" style="display: none;">اکاؤنٹ نمبر</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Account number (optional)" placeholder-ur="اکاؤنٹ نمبر (اختیاری)">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Branch Name</span>
+                                    <span class="ur" style="display: none;">برانچ کا نام</span>
+                                </label>
+                                <input type="text" class="form-input" placeholder="Branch name" placeholder-ur="برانچ کا نام">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Branch Address</span>
+                                    <span class="ur" style="display: none;">برانچ کا پتہ</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Complete branch address" placeholder-ur="مکمل برانچ کا پتہ"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Phone Number</span>
+                                        <span class="ur" style="display: none;">فون نمبر</span>
+                                    </label>
+                                    <input type="tel" class="form-input" placeholder="Branch phone" placeholder-ur="برانچ فون">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Email Address</span>
+                                        <span class="ur" style="display: none;">ای میل ایڈریس</span>
+                                    </label>
+                                    <input type="email" class="form-input" placeholder="Branch email" placeholder-ur="برانچ ای میل">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Initial Balance</span>
+                                    <span class="ur" style="display: none;">ابتدائی بیلنس</span>
+                                </label>
+                                <input type="number" class="form-input" placeholder="0.00" step="0.01">
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button class="btn btn-secondary">
+                                    <span class="en">Cancel</span>
+                                    <span class="ur" style="display: none;">منسوخ</span>
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    <span class="en">Save Bank</span>
+                                    <span class="ur" style="display: none;">بینک محفوظ کریں</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 4: Save and Confirm</span>
+                                <span class="ur" style="display: none;">قدم 4: محفوظ اور تصدیق کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">After filling all required fields, click "Save Bank" to add it to your system. You'll see a confirmation message.</span>
+                            <span class="ur" style="display: none;">تمام ضروری فیلڈز بھرنے کے بعد، اسے اپنے سسٹم میں شامل کرنے کے لیے "بینک محفوظ کریں" پر کلک کریں۔ آپ کو تصدیقی پیغام نظر آئے گا۔</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Managing Bank Accounts -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Managing Bank Accounts</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹس کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to view, edit, and manage your bank accounts</span>
+                            <span class="ur" style="display: none;">اپنے بینک اکاؤنٹس کو دیکھنا، ترمیم اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Viewing Bank Accounts</span>
+                                <span class="ur" style="display: none;">بینک اکاؤنٹس دیکھنا</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">The banking system shows all your bank accounts with their current balances and details:</span>
+                            <span class="ur" style="display: none;">بینکنگ سسٹم آپ کے تمام بینک اکاؤنٹس کو ان کے موجودہ بیلنس اور تفصیلات کے ساتھ دکھاتا ہے:</span>
+                        </p>
+                        
+                        <div class="bank-card">
+                            <div class="bank-header">
+                                <div class="bank-name">HBL Bank - Main Account</div>
+                                <div class="bank-status status-active">
+                                    <span class="en">Active</span>
+                                    <span class="ur" style="display: none;">فعال</span>
+                                </div>
+                            </div>
+                            <div class="balance-display">
+                                <div class="balance-amount">$25,450.00</div>
+                                <div class="balance-label">
+                                    <span class="en">Current Balance</span>
+                                    <span class="ur" style="display: none;">موجودہ بیلنس</span>
+                                </div>
+                            </div>
+                            <div class="bank-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-hashtag detail-icon"></i>
+                                    <span>Account: 1234567890</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt detail-icon"></i>
+                                    <span>Main Branch, Karachi</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-phone detail-icon"></i>
+                                    <span>+92 21 111-425-111</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Editing Bank Information</span>
+                                <span class="ur" style="display: none;">بینک کی معلومات میں ترمیم</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">To edit a bank account, click on the bank name or the edit button. You can update:</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹ میں ترمیم کرنے کے لیے، بینک کے نام یا ترمیم بٹن پر کلک کریں۔ آپ اپڈیٹ کر سکتے ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Bank name and code</span>
+                                <span class="ur" style="display: none;">بینک کا نام اور کوڈ</span>
+                            </li>
+                            <li>
+                                <span class="en">Account number and branch details</span>
+                                <span class="ur" style="display: none;">اکاؤنٹ نمبر اور برانچ کی تفصیلات</span>
+                            </li>
+                            <li>
+                                <span class="en">Contact information (phone, email)</span>
+                                <span class="ur" style="display: none;">رابطہ کی معلومات (فون، ای میل)</span>
+                            </li>
+                            <li>
+                                <span class="en">Account status (active/inactive)</span>
+                                <span class="ur" style="display: none;">اکاؤنٹ کی حالت (فعال/غیر فعال)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Transactions -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Financial Transactions</span>
+                            <span class="ur" style="display: none;">مالی لین دین</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to track deposits, withdrawals, and transfers</span>
+                            <span class="ur" style="display: none;">ڈپازٹ، واپسی اور ٹرانسفر کو ٹریک کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Recording Deposits</span>
+                                <span class="ur" style="display: none;">ڈپازٹ ریکارڈ کرنا</span>
+                            </div>
+                        </div>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Banking System → Transactions</span>
+                                <span class="ur" style="display: none;">بینکنگ سسٹم → لین دین میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "New Transaction" → "Deposit"</span>
+                                <span class="ur" style="display: none;">"نیا لین دین" → "ڈپازٹ" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Select the bank account</span>
+                                <span class="ur" style="display: none;">بینک اکاؤنٹ منتخب کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Enter deposit amount and description</span>
+                                <span class="ur" style="display: none;">ڈپازٹ کی رقم اور تفصیل درج کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Save the transaction</span>
+                                <span class="ur" style="display: none;">لین دین محفوظ کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-minus-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Recording Withdrawals</span>
+                                <span class="ur" style="display: none;">واپسی ریکارڈ کرنا</span>
+                            </div>
+                        </div>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Banking System → Transactions</span>
+                                <span class="ur" style="display: none;">بینکنگ سسٹم → لین دین میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "New Transaction" → "Withdrawal"</span>
+                                <span class="ur" style="display: none;">"نیا لین دین" → "واپسی" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Select the bank account</span>
+                                <span class="ur" style="display: none;">بینک اکاؤنٹ منتخب کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Enter withdrawal amount and reason</span>
+                                <span class="ur" style="display: none;">واپسی کی رقم اور وجہ درج کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Save the transaction</span>
+                                <span class="ur" style="display: none;">لین دین محفوظ کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Best Practices -->
+            <div class="tips-section">
+                <div class="tips-header">
+                    <i class="fas fa-lightbulb tips-icon"></i>
+                    <div class="tips-title">
+                        <span class="en">Tips & Best Practices</span>
+                        <span class="ur" style="display: none;">نصائح اور بہترین طریقے</span>
+                    </div>
+                </div>
+                <ul class="tips-list">
+                    <li>
+                        <span class="en">Keep bank account information up to date</span>
+                        <span class="ur" style="display: none;">بینک اکاؤنٹ کی معلومات کو اپ ٹو ڈیٹ رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Regularly reconcile bank balances with your records</span>
+                        <span class="ur" style="display: none;">بینک کے بیلنس کو اپنے ریکارڈز کے ساتھ باقاعدگی سے میل کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Use clear descriptions for all transactions</span>
+                        <span class="ur" style="display: none;">تمام لین دین کے لیے واضح تفصیلات استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Set up multiple bank accounts for different purposes</span>
+                        <span class="ur" style="display: none;">مختلف مقاصد کے لیے متعدد بینک اکاؤنٹس سیٹ اپ کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Monitor account balances regularly</span>
+                        <span class="ur" style="display: none;">اکاؤنٹ کے بیلنس کا باقاعدگی سے جائزہ لیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Keep transaction records for audit purposes</span>
+                        <span class="ur" style="display: none;">آڈٹ کے مقاصد کے لیے لین دین کے ریکارڈز رکھیں</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Banking System Guide</span>
+                        <span class="ur" style="display: none;">بینکنگ سسٹم گائیڈ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Master banking management in your POS system</span>
+                        <span class="ur" style="display: none;">اپنے پوس سسٹم میں بینکنگ کے انتظام میں مہارت حاصل کریں</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="en">Main Guide</span>
+                            <span class="ur" style="display: none;">مین گائیڈ</span>
+                        </a></li>
+                        <li><a href="product-guide.html">
+                            <span class="en">Product Guide</span>
+                            <span class="ur" style="display: none;">مصنوعات گائیڈ</span>
+                        </a></li>
+                        <li><a href="supplier-guide.html">
+                            <span class="en">Supplier Guide</span>
+                            <span class="ur" style="display: none;">سپلائر گائیڈ</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

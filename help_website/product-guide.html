@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management Guide | مصنوعات کے انتظام کی گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .guide-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .step-visual {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-visual.dark-theme {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .visual-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .visual-header {
+            border-color: #334155;
+        }
+        
+        .visual-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .visual-title {
+            color: #e2e8f0;
+        }
+        
+        .form-preview {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed #3b82f6;
+        }
+        
+        .dark-theme .form-preview {
+            background: #0f172a;
+            border-color: #3b82f6;
+        }
+        
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        
+        .dark-theme .form-label {
+            color: #e2e8f0;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        .dark-theme .form-input {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .btn-secondary {
+            background: #1e293b;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .dark-theme .tips-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-left-color: #3b82f6;
+        }
+        
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-icon {
+            color: #3b82f6;
+            font-size: 1.25rem;
+        }
+        
+        .tips-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .tips-title {
+            color: #e2e8f0;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1.25rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #1d4ed8;
+        }
+        
+        .dark-theme .back-button {
+            color: #60a5fa;
+        }
+        
+        .dark-theme .back-button:hover {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="index.html#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span class="en">Back to Main Guide</span>
+                <span class="ur" style="display: none;">مین گائیڈ پر واپس</span>
+            </a>
+            <h1>
+                <span class="en">Product Management Guide</span>
+                <span class="ur" style="display: none;">مصنوعات کے انتظام کی گائیڈ</span>
+            </h1>
+            <p>
+                <span class="en">Learn how to add, edit, and manage products in your POS system</span>
+                <span class="ur" style="display: none;">اپنے پوس سسٹم میں مصنوعات شامل، ترمیم اور انتظام کرنا سیکھیں</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="guides">
+        <div class="container">
+            <!-- Adding Products -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Adding New Products</span>
+                            <span class="ur" style="display: none;">نئی مصنوعات شامل کرنا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Step-by-step guide to add products to your inventory</span>
+                            <span class="ur" style="display: none;">اپنے انوینٹری میں مصنوعات شامل کرنے کا قدم بہ قدم گائیڈ</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 1: Navigate to Products</span>
+                                <span class="ur" style="display: none;">قدم 1: مصنوعات میں جائیں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">From the main dashboard, click on the "Products" or "Inventory" section. This will take you to the product management area.</span>
+                            <span class="ur" style="display: none;">مین ڈیش بورڈ سے، "مصنوعات" یا "انوینٹری" سیکشن پر کلک کریں۔ یہ آپ کو مصنوعات کے انتظام کے علاقے میں لے جائے گا۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 2: Click Add Product</span>
+                                <span class="ur" style="display: none;">قدم 2: مصنوعات شامل کریں پر کلک کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Look for the "Add Product" or "+" button, usually located at the top of the products list or in a prominent position.</span>
+                            <span class="ur" style="display: none;">"مصنوعات شامل کریں" یا "+" بٹن تلاش کریں، جو عام طور پر مصنوعات کی فہرست کے اوپر یا نمایاں جگہ پر ہوتا ہے۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 3: Fill Product Information</span>
+                                <span class="ur" style="display: none;">قدم 3: مصنوعات کی معلومات بھریں</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-preview">
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Product Name *</span>
+                                    <span class="ur" style="display: none;">مصنوعات کا نام *</span>
+                                </label>
+                                <input type="text" class="form-input" placeholder="Enter product name" placeholder-ur="مصنوعات کا نام درج کریں">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Category *</span>
+                                        <span class="ur" style="display: none;">قسم *</span>
+                                    </label>
+                                    <select class="form-input">
+                                        <option>
+                                            <span class="en">Select Category</span>
+                                            <span class="ur" style="display: none;">قسم منتخب کریں</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Electronics</span>
+                                            <span class="ur" style="display: none;">الیکٹرانکس</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Clothing</span>
+                                            <span class="ur" style="display: none;">کپڑے</span>
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Barcode</span>
+                                        <span class="ur" style="display: none;">بارکوڈ</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Optional barcode" placeholder-ur="اختیاری بارکوڈ">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Selling Price *</span>
+                                        <span class="ur" style="display: none;">فروخت کی قیمت *</span>
+                                    </label>
+                                    <input type="number" class="form-input" placeholder="0.00" step="0.01">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Cost Price *</span>
+                                        <span class="ur" style="display: none;">لاگت قیمت *</span>
+                                    </label>
+                                    <input type="number" class="form-input" placeholder="0.00" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Stock Quantity</span>
+                                        <span class="ur" style="display: none;">اسٹاک کی مقدار</span>
+                                    </label>
+                                    <input type="number" class="form-input" placeholder="0" step="1">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Unit</span>
+                                        <span class="ur" style="display: none;">یونٹ</span>
+                                    </label>
+                                    <select class="form-input">
+                                        <option>pcs</option>
+                                        <option>kg</option>
+                                        <option>liters</option>
+                                        <option>boxes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Description</span>
+                                    <span class="ur" style="display: none;">تفصیل</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Product description (optional)" placeholder-ur="مصنوعات کی تفصیل (اختیاری)"></textarea>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button class="btn btn-secondary">
+                                    <span class="en">Cancel</span>
+                                    <span class="ur" style="display: none;">منسوخ</span>
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    <span class="en">Save Product</span>
+                                    <span class="ur" style="display: none;">مصنوعات محفوظ کریں</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 4: Save and Confirm</span>
+                                <span class="ur" style="display: none;">قدم 4: محفوظ اور تصدیق کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">After filling all required fields, click "Save" or "Save Product" to add it to your inventory. You'll see a confirmation message.</span>
+                            <span class="ur" style="display: none;">تمام ضروری فیلڈز بھرنے کے بعد، اسے اپنے انوینٹری میں شامل کرنے کے لیے "محفوظ کریں" یا "مصنوعات محفوظ کریں" پر کلک کریں۔ آپ کو تصدیقی پیغام نظر آئے گا۔</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Managing Categories -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Managing Product Categories</span>
+                            <span class="ur" style="display: none;">مصنوعات کی اقسام کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to create and organize product categories</span>
+                            <span class="ur" style="display: none;">مصنوعات کی اقسام بنانے اور منظم کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-folder-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Creating Categories</span>
+                                <span class="ur" style="display: none;">اقسام بنانا</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Go to the Categories section and click "Add Category". Common categories include:</span>
+                            <span class="ur" style="display: none;">اقسام کے سیکشن میں جائیں اور "قسم شامل کریں" پر کلک کریں۔ عام اقسام میں شامل ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Electronics (Phones, Laptops, etc.)</span>
+                                <span class="ur" style="display: none;">الیکٹرانکس (فونز، لیپ ٹاپس، وغیرہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Clothing (Shirts, Pants, etc.)</span>
+                                <span class="ur" style="display: none;">کپڑے (شرٹس، پینٹس، وغیرہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Food & Beverages</span>
+                                <span class="ur" style="display: none;">کھانا اور مشروبات</span>
+                            </li>
+                            <li>
+                                <span class="en">Home & Garden</span>
+                                <span class="ur" style="display: none;">گھر اور باغ</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Best Practices -->
+            <div class="tips-section">
+                <div class="tips-header">
+                    <i class="fas fa-lightbulb tips-icon"></i>
+                    <div class="tips-title">
+                        <span class="en">Tips & Best Practices</span>
+                        <span class="ur" style="display: none;">نصائح اور بہترین طریقے</span>
+                    </div>
+                </div>
+                <ul class="tips-list">
+                    <li>
+                        <span class="en">Always use clear, descriptive product names</span>
+                        <span class="ur" style="display: none;">ہمیشہ واضح، تفصیلی مصنوعات کے نام استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Set up proper categories for easy organization</span>
+                        <span class="ur" style="display: none;">آسان تنظیم کے لیے مناسب اقسام سیٹ اپ کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Use barcodes for faster checkout process</span>
+                        <span class="ur" style="display: none;">تیز چیک آؤٹ پروسیس کے لیے بارکوڈ استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Keep track of stock levels to avoid overselling</span>
+                        <span class="ur" style="display: none;">زیادہ فروخت سے بچنے کے لیے اسٹاک کی سطح کا ٹریک رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Set reorder levels for automatic stock alerts</span>
+                        <span class="ur" style="display: none;">خودکار اسٹاک الرٹس کے لیے دوبارہ آرڈر کی سطحیں سیٹ کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Regularly update product information and prices</span>
+                        <span class="ur" style="display: none;">مصنوعات کی معلومات اور قیمتوں کو باقاعدگی سے اپڈیٹ کریں</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Product Management Guide</span>
+                        <span class="ur" style="display: none;">مصنوعات کے انتظام کی گائیڈ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Master product management in your POS system</span>
+                        <span class="ur" style="display: none;">اپنے پوس سسٹم میں مصنوعات کے انتظام میں مہارت حاصل کریں</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="en">Main Guide</span>
+                            <span class="ur" style="display: none;">مین گائیڈ</span>
+                        </a></li>
+                        <li><a href="supplier-guide.html">
+                            <span class="en">Supplier Guide</span>
+                            <span class="ur" style="display: none;">سپلائر گائیڈ</span>
+                        </a></li>
+                        <li><a href="bank-guide.html">
+                            <span class="en">Banking Guide</span>
+                            <span class="ur" style="display: none;">بینکنگ گائیڈ</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

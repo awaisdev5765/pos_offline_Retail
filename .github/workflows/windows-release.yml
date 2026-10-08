@@ -1,0 +1,80 @@
+name: Windows Release
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: windows-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-windows:
+    name: Build Retail POS for Windows
+    runs-on: windows-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Enable Windows desktop
+        run: flutter config --enable-windows-desktop
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Analyze source
+        run: flutter analyze --no-fatal-infos --no-fatal-warnings
+
+      - name: Build release
+        run: flutter build windows --release
+
+      - name: Validate and package Windows application
+        shell: pwsh
+        run: |
+          $releaseDirectory = "build/windows/x64/runner/Release"
+          $executable = Join-Path $releaseDirectory "RetailPOS.exe"
+          if (-not (Test-Path $executable)) {
+            throw "RetailPOS.exe was not created at $executable"
+          }
+
+          $versionInfo = (Get-Item $executable).VersionInfo
+          if ($versionInfo.ProductName -ne "Retail POS") {
+            throw "Unexpected ProductName: $($versionInfo.ProductName)"
+          }
+
+          $archive = "RetailPOS-Windows-x64.zip"
+          Compress-Archive -Path "$releaseDirectory/*" -DestinationPath $archive -Force
+          Write-Host "Created $archive with RetailPOS.exe and all required runtime files."
+
+      - name: Upload Windows build
+        uses: actions/upload-artifact@v4
+        with:
+          name: RetailPOS-Windows-x64
+          path: RetailPOS-Windows-x64.zip
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish tagged GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: RetailPOS-Windows-x64.zip
+          generate_release_notes: true

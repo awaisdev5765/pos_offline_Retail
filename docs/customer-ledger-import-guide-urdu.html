@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>کسٹمر لیجر ڈیٹا امپورٹ گائیڈ - اردو</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", "Arial Unicode MS", serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #222;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    h1 {
+      color: #4a5568;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 2.5em;
+      border-bottom: 3px solid #667eea;
+      padding-bottom: 15px;
+    }
+    h2 {
+      color: #667eea;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 1.8em;
+      border-right: 4px solid #667eea;
+      padding-right: 15px;
+    }
+    h3 {
+      color: #4a5568;
+      margin-top: 25px;
+      margin-bottom: 12px;
+      font-size: 1.4em;
+    }
+    .step {
+      background: #f7fafc;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+      border-right: 4px solid #667eea;
+    }
+    ul, ol {
+      margin: 15px 0;
+      padding-right: 30px;
+    }
+    li {
+      margin-bottom: 10px;
+      line-height: 1.9;
+    }
+    .note {
+      background: #eef2ff;
+      border-right: 5px solid #6366f1;
+      padding: 18px 25px;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+    }
+    .warning {
+      background: #fef3c7;
+      border-right: 5px solid #f59e0b;
+      padding: 18px 25px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    .success {
+      background: #d1fae5;
+      border-right: 5px solid #10b981;
+      padding: 18px 25px;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      text-align: center;
+    }
+    th {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background: #f7fafc;
+    }
+    tr:hover {
+      background: #edf2f7;
+    }
+    .code-block {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 20px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 15px 0;
+      direction: ltr;
+      text-align: left;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #e2e8f0;
+      color: #64748b;
+      font-size: 14px;
+    }
+    .icon {
+      display: inline-block;
+      margin-left: 8px;
+      font-size: 1.2em;
+    }
+    .button-example {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 6px;
+      margin: 5px;
+      font-weight: bold;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #10b981, #34d399);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+      margin-top: 16px;
+    }
+    .download-btn:hover {
+      opacity: 0.92;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📋 کسٹمر لیجر ڈیٹا امپورٹ: مکمل اردو گائیڈ</h1>
+    
+    <div class="note">
+      <p><strong>✅ اہم:</strong> آپ کے POS سسٹم میں یہ فیچر پہلے سے موجود ہے! آپ کو صرف Customer Ledger سکرین پر جا کر "Import Legacy Data" بٹن استعمال کرنا ہے۔</p>
+    </div>
+
+    <div class="step">
+      <h2>🚀 مرحلہ 1: کسٹمر لیجر سکرین کھولیں</h2>
+      <ol>
+        <li>اپنے POS ایپ میں <strong>Customers</strong> مینو پر جائیں</li>
+        <li>جس کسٹمر کا ڈیٹا امپورٹ کرنا ہے، اس پر کلک کریں</li>
+        <li><strong>Customer Ledger</strong> سکرین کھل جائے گی</li>
+        <li>اوپر دائیں کونے میں <span class="button-example">📝 Import Legacy Data</span> آئیکن دیکھیں گے (صرف Admin/Manager کو نظر آتا ہے)</li>
+        <li>اس آئیکن پر کلک کریں</li>
+      </ol>
+    </div>
+
+    <div class="step">
+      <h2>📝 مرحلہ 2: ڈیٹا کاپی اور پیسٹ کریں</h2>
+      <ol>
+        <li>امپورٹ ڈائیلاگ کھل جائے گا</li>
+        <li>اپنا ڈیٹا کاپی کریں (جیسا کہ آپ نے دیا ہے)</li>
+        <li>بڑے ٹیکسٹ باکس میں پیسٹ کریں</li>
+        <li><strong>Import</strong> بٹن پر کلک کریں</li>
+      </ol>
+      
+      <div class="warning">
+        <p><strong>⚠️ فارمیٹ:</strong> آپ کا ڈیٹا اس فارمیٹ میں ہونا چاہیے:</p>
+        <div class="code-block">
+CUSTOMER | TAUFEEL MUSTUFA STORE | 09/05/2023 | SI-2093-2023 | SALES | 1,136,500.00 | -
+CUSTOMER | TAUFEEL MUSTUFA STORE | 16-09-2023 | JV-2818-2023 | GENERAL VOUCHER | - | 800,000.00
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <h2>📊 مرحلہ 3: ڈیٹا کیسے پارس ہوتا ہے</h2>
+      <p>سسٹم آپ کے ڈیٹا کو خود بخود سمجھ لے گا:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>کالم</th>
+            <th>مثال</th>
+            <th>تفصیل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>CUSTOMER</strong></td>
+            <td>CUSTOMER</td>
+            <td>پہلا کالم (نظر انداز کیا جاتا ہے)</td>
+          </tr>
+          <tr>
+            <td><strong>Customer Name</strong></td>
+            <td>TAUFEEL MUSTUFA STORE</td>
+            <td>کسٹمر کا نام (اگر موجود نہیں تو خود بنایا جائے گا)</td>
+          </tr>
+          <tr>
+            <td><strong>Date</strong></td>
+            <td>09/05/2023 یا 16-09-2023</td>
+            <td>تاریخ (دونوں فارمیٹ قبول ہیں)</td>
+          </tr>
+          <tr>
+            <td><strong>Invoice/Voucher</strong></td>
+            <td>SI-2093-2023</td>
+            <td>واؤچر یا انوائس نمبر</td>
+          </tr>
+          <tr>
+            <td><strong>Type</strong></td>
+            <td>SALES, GENERAL VOUCHER, etc.</td>
+            <td>ٹرانزیکشن کی قسم</td>
+          </tr>
+          <tr>
+            <td><strong>Debit</strong></td>
+            <td>1,136,500.00</td>
+            <td>سیلز کی رقم (Debit)</td>
+          </tr>
+          <tr>
+            <td><strong>Credit</strong></td>
+            <td>800,000.00 یا (58,250.00)</td>
+            <td>ادائیگی کی رقم (Credit) - منفی مقدار بھی قبول</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="step">
+      <h2>💡 مرحلہ 4: ٹرانزیکشن کی اقسام</h2>
+      <ul>
+        <li><strong>SALES</strong> یا <strong>SI-</strong> شروع: → <strong>Sale Record</strong> بنایا جائے گا</li>
+        <li><strong>GENERAL VOUCHER</strong> یا <strong>JV-</strong>: → <strong>Payment Record</strong> (Cash)</li>
+        <li><strong>CASH RECEIPT</strong> یا <strong>CRV-</strong>: → <strong>Payment Record</strong> (Cash)</li>
+        <li><strong>BANK BOOK</strong> یا <strong>BV-</strong>: → <strong>Payment Record</strong> (Bank Transfer)</li>
+        <li><strong>منفی مقدار (58,250.00)</strong>: → خود بخود <strong>Reversal Entry</strong> بنایا جائے گا</li>
+      </ul>
+    </div>
+
+    <div class="step">
+      <h2>✅ مرحلہ 5: امپورٹ کے بعد</h2>
+      <ol>
+        <li>سسٹم آپ کو نتائج دکھائے گا:
+          <ul>
+            <li>✅ کتنے ریکارڈ شامل ہوئے</li>
+            <li>⏭️ کتنے skip ہوئے</li>
+            <li>⚠️ کوئی errors (اگر ہوں)</li>
+          </ul>
+        </li>
+        <li>Ledger خود بخود refresh ہو جائے گا</li>
+        <li>تمام سیلز اور ادائیگیاں Customer Ledger میں نظر آئیں گی</li>
+        <li><strong>نوٹ:</strong> سیلز کے لیے ایک system product استعمال ہوگا: "LEGACY-IMPORT-ITEM-DO-NOT-USE"</li>
+      </ol>
+    </div>
+
+    <div class="warning">
+      <h3>⚠️ اہم وارننگ</h3>
+      <ul>
+        <li>یہ فیچر صرف <strong>Legacy Data Migration</strong> کے لیے ہے</li>
+        <li>ایک بار استعمال کریں - تاریخی ڈیٹا کے لیے</li>
+        <li>امپورٹ سے پہلے ڈیٹا بیس کا <strong>backup</strong> ضرور لیں</li>
+        <li>اگر کسٹمر پہلے سے موجود نہیں ہے، تو خود بخود بنایا جائے گا (phone: 0000000)</li>
+        <li>منفی مقداروں کو صحیح طریقے سے handle کیا جائے گا</li>
+      </ul>
+    </div>
+
+    <div class="success">
+      <h3>✅ آپ کا ڈیٹا مثال</h3>
+      <p>آپ نے جو ڈیٹا دیا ہے، وہ بالکل صحیح فارمیٹ میں ہے:</p>
+      <div class="code-block">
+CUSTOMER	TAUFEEL MUSTUFA STORE	09/05/2023	SI-2093-2023	SALES	 1,136,500.00 	 -   
+CUSTOMER	TAUFEEL MUSTUFA STORE	16-09-2023	JV-2818-2023	GENERAL VOUCHER	 -   	 800,000.00 
+CUSTOMER	TAUFEEL MUSTUFA STORE	20-09-2023	JV-2362-2023	GENERAL VOUCHER	 -   	 (58,250.00)
+      </div>
+      <p>یہ تمام ریکارڈز صحیح طریقے سے امپورٹ ہو جائیں گے!</p>
+    </div>
+
+    <div class="step">
+      <h2>📂 مکمل مثال: SHAH G STORE لیجر امپورٹ</h2>
+      <p>اگر آپ کے پاس اوپر دیے گئے فارمیٹ میں طویل ڈیٹا ہے (جیسے <strong>SHAH G STORE</strong>) تو انہی مراحل کو فالو کریں:</p>
+      <ol>
+        <li><strong>Customers → SHAH G STORE → Customer Ledger</strong> کھولیں اور اوپر موجود <strong>Import Legacy Data</strong> آئیکن دبائیں۔</li>
+        <li>نیچے دی گئی فائل ڈاؤن لوڈ کریں یا اپنے سورس سے ڈیٹا کاپی کر کے ڈائیلاگ میں پیسٹ کریں۔</li>
+        <li>تاریخوں میں "/" اور "-" دونوں فارمیٹ قبول ہیں۔ سسٹم خودکار طور پر انہیں DateTime میں کنورٹ کرے گا۔</li>
+        <li><strong>SALES / SI-</strong> والی لائنیں سیلز انٹری میں بدلیں گی جبکہ <strong>JV-, BV-, CRV-, PV-</strong> ادائیگیوں کو Payment ریکارڈ میں بدل دیں گی۔</li>
+        <li>امپورٹ ختم ہونے پر Ledger خود ریفریش ہوگا۔ کل سیلز اور موصولہ ادائیگیوں کو ایک بار ضرور ملا لیں تاکہ کوئی ٹائپنگ غلطی سامنے آ جائے۔</li>
+      </ol>
+      <button class="download-btn" onclick="downloadShahGSample()">📥 SHAH G STORE نمونہ فائل ڈاؤن لوڈ کریں</button>
+      <p style="margin-top:12px; color:#4b5563;">فائل .txt کی صورت میں ڈاؤن لوڈ ہوگی۔ اسے Notepad یا کسی بھی ٹیکسٹ ایڈیٹر میں کھول کر براہِ راست امپورٹ باکس میں پیسٹ کریں۔</p>
+    </div>
+
+    <div class="step">
+      <h2>🔧 اگر کوئی مسئلہ آئے</h2>
+      <ul>
+        <li><strong>Date Parse Error:</strong> تاریخ کا فارمیٹ چیک کریں (DD/MM/YYYY یا DD-MM-YYYY)</li>
+        <li><strong>Customer Not Found:</strong> کسٹمر خود بخود بنایا جائے گا</li>
+        <li><strong>Amount Error:</strong> رقم میں comma یا spaces ہٹا دیں</li>
+        <li><strong>Empty Rows:</strong> خالی لائنیں خود skip ہو جائیں گی</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>📱 <strong>Offline POS System</strong> - Customer Ledger Import Guide</p>
+      <p>یہ گائیڈ آپ کے موجودہ سسٹم کے لیے بنائی گئی ہے</p>
+      <p style="margin-top: 10px; color: #94a3b8;">© 2025 - تمام حقوق محفوظ</p>
+    </div>
+  </div>
+  <script>
+    function downloadShahGSample() {
+      const data = `
+CUSTOMER	SHAH G STORE	05/01/2023	SI-2197-2023	SALES	 1,346,470.00 	 -   
+CUSTOMER	SHAH G STORE	13-05-2023	SI-2198-2023	SALES	 1,282,000.00 	 -   
+CUSTOMER	SHAH G STORE	25-05-2023	SI-2199-2023	SALES	 1,277,500.00 	 -   
+CUSTOMER	SHAH G STORE	06/08/2023	SI-2200-2023	SALES	 1,284,000.00 	 -   
+CUSTOMER	SHAH G STORE	17-06-2023	SI-2201-2023	SALES	 1,275,500.00 	 -   
+CUSTOMER	SHAH G STORE	26-06-2023	SI-2202-2023	SALES	 1,324,500.00 	 -   
+CUSTOMER	SHAH G STORE	14-07-2023	SI-2203-2023	SALES	 1,490,000.00 	 -   
+CUSTOMER	SHAH G STORE	22-07-2023	SI-2204-2023	SALES	 1,492,000.00 	 -   
+CUSTOMER	SHAH G STORE	08/08/2023	SI-2205-2023	SALES	 588,000.00 	 -   
+CUSTOMER	SHAH G STORE	15-08-2023	SI-2206-2023	SALES	 1,089,500.00 	 -   
+CUSTOMER	SHAH G STORE	22-08-2023	SI-1808-2023	SALES	 1,407,050.00 	 -   
+CUSTOMER	SHAH G STORE	26-08-2023	SI-1809-2023	SALES	 1,217,500.00 	 -   
+CUSTOMER	SHAH G STORE	09/05/2023	SI-1810-2023	SALES	 1,014,500.00 	 -   
+CUSTOMER	SHAH G STORE	16-09-2023	SI-1811-2023	SALES	 744,000.00 	 -   
+CUSTOMER	SHAH G STORE	30-09-2023	SI-1812-2023	SALES	 609,500.00 	 -   
+CUSTOMER	SHAH G STORE	10/04/2023	SI-1813-2023	SALES	 678,000.00 	 -   
+CUSTOMER	SHAH G STORE	14-10-2023	SI-1814-2023	SALES	 1,083,000.00 	 -   
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1413-2023	GENERAL VOUCHER	 -   	 1,000,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1414-2023	GENERAL VOUCHER	 -   	 600,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1415-2023	GENERAL VOUCHER	 -   	 470,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1416-2023	GENERAL VOUCHER	 -   	 510,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1417-2023	GENERAL VOUCHER	 -   	 420,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1418-2023	GENERAL VOUCHER	 -   	 625,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1419-2023	GENERAL VOUCHER	 -   	 750,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1411-2023	GENERAL VOUCHER	 -   	 600,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1412-2023	GENERAL VOUCHER	 -   	 870,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1337-2023	GENERAL VOUCHER	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1338-2023	GENERAL VOUCHER	 -   	 430,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1339-2023	GENERAL VOUCHER	 -   	 300,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1340-2023	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1335-2023	GENERAL VOUCHER	 -   	 440,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1336-2023	GENERAL VOUCHER	 -   	 800,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1341-2023	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1342-2023	GENERAL VOUCHER	 -   	 507,495.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1343-2023	GENERAL VOUCHER	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1344-2023	GENERAL VOUCHER	 -   	 155,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1345-2023	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	16-10-2023	JV-1571-2023	GENERAL VOUCHER	 -   	 900,000.00 
+CUSTOMER	SHAH G STORE	17-10-2023	JV-1607-2023	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	17-10-2023	JV-1608-2023	GENERAL VOUCHER	 -   	 1,100,000.00 
+CUSTOMER	SHAH G STORE	17-10-2023	JV-1424-2023	GENERAL VOUCHER	 -   	 800,000.00 
+CUSTOMER	SHAH G STORE	18-10-2023	JV-1403-2023	GENERAL VOUCHER	 -   	 775,000.00 
+CUSTOMER	SHAH G STORE	19-10-2023	SI-1845-2023	SALES	 881,500.00 	 -   
+CUSTOMER	SHAH G STORE	24-10-2023	JV-977-2023	GENERAL VOUCHER	 -   	 600,000.00 
+CUSTOMER	SHAH G STORE	27-10-2023	JV-1556-2023	GENERAL VOUCHER	 -   	 150,000.00 
+CUSTOMER	SHAH G STORE	31-10-2023	JV-720-2023	GENERAL VOUCHER	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	31-10-2023	SI-1725-2023	SALES	 679,500.00 	 -   
+CUSTOMER	SHAH G STORE	11/08/2023	JV-1070-2023	GENERAL VOUCHER	 -   	 915,000.00 
+CUSTOMER	SHAH G STORE	11/10/2023	JV-1074-2023	GENERAL VOUCHER	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	11/11/2023	SI-1789-2023	SALES	 370,000.00 	 -   
+CUSTOMER	SHAH G STORE	17-11-2023	JV-1033-2023	GENERAL VOUCHER	 -   	 800,000.00 
+CUSTOMER	SHAH G STORE	17-11-2023	SI-1978-2023	SALES	 498,000.00 	 -   
+CUSTOMER	SHAH G STORE	18-11-2023	SI-1989-2023	SALES	 1,032,000.00 	 -   
+CUSTOMER	SHAH G STORE	24-11-2023	JV-188-2023	GENERAL VOUCHER	 -   	 230,000.00 
+CUSTOMER	SHAH G STORE	24-11-2023	JV-679-2023	GENERAL VOUCHER	 -   	 226,000.00 
+CUSTOMER	SHAH G STORE	27-11-2023	SI-1684-2023	SALES	 1,157,000.00 	 -   
+CUSTOMER	SHAH G STORE	30-11-2023	JV-801-2023	GENERAL VOUCHER	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	12/08/2023	JV-820-2023	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	12/08/2023	JV-157-2023	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	12/09/2023	SI-1389-2023	SALES	 537,500.00 	 -   
+CUSTOMER	SHAH G STORE	14-12-2023	JV-393-2023	GENERAL VOUCHER	 -   	 350,000.00 
+CUSTOMER	SHAH G STORE	14-12-2023	JV-394-2023	GENERAL VOUCHER	 -   	 700,000.00 
+CUSTOMER	SHAH G STORE	15-12-2023	SI-840-2023	SALES	 526,000.00 	 -   
+CUSTOMER	SHAH G STORE	19-12-2023	JV-93-2023	GENERAL VOUCHER	 -   	 680,000.00 
+CUSTOMER	SHAH G STORE	29-12-2023	JV-331-2023	GENERAL VOUCHER	 -   	 600,000.00 
+CUSTOMER	SHAH G STORE	01/02/2024	SI-2003-2024	SALES	 538,500.00 	 -   
+CUSTOMER	SHAH G STORE	01/02/2024	JV-288-2024	GENERAL VOUCHER	 -   	 650,000.00 
+CUSTOMER	SHAH G STORE	01/04/2024	SI-1176-2024	SALES	 460,500.00 	 -   
+CUSTOMER	SHAH G STORE	01/09/2024	JV-63-2024	GENERAL VOUCHER	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	01/09/2024	JV-64-2024	GENERAL VOUCHER	 -   	 300,000.00 
+CUSTOMER	SHAH G STORE	01/10/2024	JV-36-2024	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	01/11/2024	SI-1289-2024	SALES	 639,750.00 	 -   
+CUSTOMER	SHAH G STORE	18-01-2024	SI-752-2024	SALES	 725,000.00 	 -   
+CUSTOMER	SHAH G STORE	23-01-2024	SI-1403-2024	SALES	 742,500.00 	 -   
+CUSTOMER	SHAH G STORE	24-01-2024	JV-468-2024	GENERAL VOUCHER	 -   	 615,000.00 
+CUSTOMER	SHAH G STORE	27-01-2024	SI-795-2024	SALES	 1,400,000.00 	 -   
+CUSTOMER	SHAH G STORE	29-01-2024	JV-3267-2024	GENERAL VOUCHER	 -   	 325,000.00 
+CUSTOMER	SHAH G STORE	30-01-2024	JV-2930-2024	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	02/09/2024	SI-1151-2024	SALES	 1,188,000.00 	 -   
+CUSTOMER	SHAH G STORE	13-02-2024	JV-3149-2024	GENERAL VOUCHER	 -   	 700,000.00 
+CUSTOMER	SHAH G STORE	14-02-2024	JV-3155-2024	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	14-02-2024	JV-3156-2024	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	26-02-2024	JV-2991-2024	GENERAL VOUCHER	 -   	 150,000.00 
+CUSTOMER	SHAH G STORE	28-02-2024	JV-3375-2024	GENERAL VOUCHER	 -   	 1,250,000.00 
+CUSTOMER	SHAH G STORE	28-02-2024	SI-906-2024	SALES	 697,500.00 	 -   
+CUSTOMER	SHAH G STORE	03/06/2024	SI-456-2024	SALES	 606,000.00 	 -   
+CUSTOMER	SHAH G STORE	13-03-2024	SI-979-2024	SALES	 372,000.00 	 -   
+CUSTOMER	SHAH G STORE	18-04-2024	JV-1923-2024	GENERAL VOUCHER	 -   	 630,000.00 
+CUSTOMER	SHAH G STORE	19-04-2024	SI-857-2024	SALES	 844,000.00 	 -   
+CUSTOMER	SHAH G STORE	05/10/2024	JV-2487-2024	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	05/11/2024	SI-588-2024	SALES	 798,500.00 	 -   
+CUSTOMER	SHAH G STORE	20-05-2024	JV-2472-2024	GENERAL VOUCHER	 -   	 550,000.00 
+CUSTOMER	SHAH G STORE	20-05-2024	JV-2473-2024	GENERAL VOUCHER	 -   	 300,000.00 
+CUSTOMER	SHAH G STORE	20-05-2024	JV-2475-2024	GENERAL VOUCHER	 -   	 250,000.00 
+CUSTOMER	SHAH G STORE	22-05-2024	JV-2489-2024	GENERAL VOUCHER	 -   	 450,000.00 
+CUSTOMER	SHAH G STORE	22-05-2024	SI-691-2024	SALES	 880,000.00 	 -   
+CUSTOMER	SHAH G STORE	30-05-2024	SI-648-2024	SALES	 880,000.00 	 -   
+CUSTOMER	SHAH G STORE	06/01/2024	JV-2124-2024	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	06/01/2024	JV-2125-2024	GENERAL VOUCHER	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	13-06-2024	JV-2018-2024	GENERAL VOUCHER	 -   	 700,000.00 
+CUSTOMER	SHAH G STORE	15-06-2024	SI-746-2024	SALES	 534,000.00 	 -   
+CUSTOMER	SHAH G STORE	07/10/2024	CRV-1049-2024	CASH RECEIPT	 -   	 925,000.00 
+CUSTOMER	SHAH G STORE	07/10/2024	SI-2506-2024	SALES	 633,500.00 	 -   
+CUSTOMER	SHAH G STORE	15-07-2024	SI-2521-2024	SALES	 768,250.00 	 -   
+CUSTOMER	SHAH G STORE	20-07-2024	SI-2539-2024	SALES	 464,000.00 	 -   
+CUSTOMER	SHAH G STORE	25-07-2024	SI-2557-2024	SALES	 609,000.00 	 -   
+CUSTOMER	SHAH G STORE	27-07-2024	BV-97-2024	BANK BOOK	 -   	 1,000,000.00 
+CUSTOMER	SHAH G STORE	08/05/2024	CRV-1121-2024	CASH RECEIPT	 -   	 820,000.00 
+CUSTOMER	SHAH G STORE	08/05/2024	SI-2594-2024	SALES	 749,500.00 	 -   
+CUSTOMER	SHAH G STORE	13-08-2024	BV-155-2020	BANK BOOK	 -   	 450,000.00 
+CUSTOMER	SHAH G STORE	17-08-2024	SI-2647-2024	SALES	 708,100.00 	 -   
+CUSTOMER	SHAH G STORE	24-08-2024	SI-2689-2024	SALES	 506,500.00 	 -   
+CUSTOMER	SHAH G STORE	29-08-2024	BV-189-2020	BANK BOOK	 -   	 1,000,000.00 
+CUSTOMER	SHAH G STORE	09/04/2024	SI-2734-2024	SALES	 505,500.00 	 -   
+CUSTOMER	SHAH G STORE	09/05/2024	BV-212-2024	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	09/10/2024	PV-7-2024	PAYMENT TRANSFER	 -   	 262,000.00 
+CUSTOMER	SHAH G STORE	09/11/2024	SI-2769-2024	SALES	 550,000.00 	 -   
+CUSTOMER	SHAH G STORE	16-09-2024	SI-2797-2024	SALES	 579,500.00 	 -   
+CUSTOMER	SHAH G STORE	25-09-2024	CRV-1259-2024	CASH RECEIPT	 -   	 600,000.00 
+CUSTOMER	SHAH G STORE	28-09-2024	SI-2850-2024	SALES	 513,500.00 	 -   
+CUSTOMER	SHAH G STORE	10/02/2024	BV-258-2024	BANK BOOK	 -   	 700,000.00 
+CUSTOMER	SHAH G STORE	10/04/2024	SI-2888-2024	SALES	 597,000.00 	 -   
+CUSTOMER	SHAH G STORE	10/11/2024	BV-297-2024	BANK BOOK	 -   	 150,000.00 
+CUSTOMER	SHAH G STORE	20-10-2024	SI-2962-2024	SALES	 615,125.00 	 -   
+CUSTOMER	SHAH G STORE	26-10-2024	BV-356-2024	BANK BOOK	 -   	 836,160.00 
+CUSTOMER	SHAH G STORE	11/04/2024	BV-386-2024	BANK BOOK	 -   	 487,000.00 
+CUSTOMER	SHAH G STORE	11/05/2024	SI-3039-2024	SALES	 635,000.00 	 -   
+CUSTOMER	SHAH G STORE	11/11/2024	SI-3057-2024	SALES	 606,050.00 	 -   
+CUSTOMER	SHAH G STORE	11/11/2024	BV-418-2024	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	11/11/2024	BV-459-2024	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	27-11-2024	BV-491-2024	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	12/09/2024	SI-3218-2024	SALES	 572,000.00 	 -   
+CUSTOMER	SHAH G STORE	12/11/2024	BV-530-2024	BANK BOOK	 -   	 440,000.00 
+CUSTOMER	SHAH G STORE	18-12-2024	BV-584-2024	BANK BOOK	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	19-12-2024	SI-3277-2024	SALES	 615,500.00 	 -   
+CUSTOMER	SHAH G STORE	26-12-2024	BV-598-2024	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	31-12-2024	BV-614-2024	BANK BOOK	 -   	 75,000.00 
+CUSTOMER	SHAH G STORE	01/02/2025	SI-3304-2025	SALES	 600,000.00 	 -   
+CUSTOMER	SHAH G STORE	01/11/2025	SI-3397-2025	SALES	 658,750.00 	 -   
+CUSTOMER	SHAH G STORE	13-01-2025	BV-658-2025	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	23-01-2025	SI-3457-2025	SALES	 496,695.00 	 -   
+CUSTOMER	SHAH G STORE	24-01-2025	BV-714-2025	BANK BOOK	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	02/03/2025	BV-739-2020	BANK BOOK	 -   	 430,000.00 
+CUSTOMER	SHAH G STORE	02/08/2025	SI-3547-2025	SALES	 579,500.00 	 -   
+CUSTOMER	SHAH G STORE	17-02-2025	BV-782-2025	BANK BOOK	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	26-02-2025	CRV-4682-2025	CASH RECEIPT	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	19-03-2025	BV-883-2025	BANK BOOK	 -   	 300,000.00 
+CUSTOMER	SHAH G STORE	24-03-2025	BV-895-2025	BANK BOOK	 -   	 140,000.00 
+CUSTOMER	SHAH G STORE	04/08/2025	SI-3742-2025	SALES	 375,000.00 	 -   
+CUSTOMER	SHAH G STORE	16-04-2025	CRV-4786-2025	CASH RECEIPT	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	19-04-2025	SI-3794-2025	SALES	 481,500.00 	 -   
+CUSTOMER	SHAH G STORE	30-04-2025	SI-3836-2025	SALES	 380,500.00 	 -   
+CUSTOMER	SHAH G STORE	05/05/2025	BV-987-2025	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	14-05-2025	BV-1013-2025	BANK BOOK	 -   	 500,000.00 
+CUSTOMER	SHAH G STORE	19-05-2025	SI-3914-2025	SALES	 466,500.00 	 -   
+CUSTOMER	SHAH G STORE	23-05-2025	BV-1057-2025	BANK BOOK	 -   	 120,000.00 
+CUSTOMER	SHAH G STORE	29-05-2025	SI-3943-2025	SALES	 215,375.00 	 -   
+CUSTOMER	SHAH G STORE	16-06-2025	BV-1088-2025	BANK BOOK	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	16-06-2025	BV-1089-2025	BANK BOOK	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	26-06-2025	SI-4037-2025	SALES	 361,250.00 	 -   
+CUSTOMER	SHAH G STORE	07/02/2025	CRV-4998-2025	CASH RECEIPT	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	07/11/2025	CRV-5030-2025	CASH RECEIPT	 -   	 200,000.00 
+CUSTOMER	SHAH G STORE	07/11/2025	SI-4106-2025	SALES	 333,000.00 	 -   
+CUSTOMER	SHAH G STORE	21-07-2025	BV-1185-2025	BANK BOOK	 -   	 400,000.00 
+CUSTOMER	SHAH G STORE	25-07-2025	SI-4167-2025	SALES	 334,250.00 	 -   
+CUSTOMER	SHAH G STORE	13-08-2025	SI-4331-2025	SALES	 360,000.00 	 -   
+CUSTOMER	SHAH G STORE	09/01/2025	BV-1240-2025	BANK BOOK	 -   	 390,000.00 
+      `.trim();
+      const blob = new Blob([data], { type: 'text/plain;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'SHAH-G-STORE-ledger-sample.txt';
+      link.click();
+    }
+  </script>
+</body>
+</html>
+

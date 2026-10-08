@@ -1,0 +1,205 @@
+Offline POS System - App Summary
+================================
+
+Project Overview
+----------------
+This project is a Flutter offline-first POS application focused on retail workflows, with local SQLite storage (Drift), Riverpod state management, and go_router navigation. The app is designed to run without internet, and includes optional LAN-based multi-PC data sync using TCP sockets.
+
+Core Architecture
+-----------------
+- Frontend + app logic: Flutter (Dart)
+- Local database: SQLite via Drift
+- State management: Riverpod
+- Routing: go_router
+- Localization: easy_localization (English/French/Arabic)
+- Desktop support: window manager + system tray behavior
+- Optional data sync: LAN discovery and TCP socket sync
+- Backup systems: local backup, Windows auto-backup, optional cloud upload helper
+
+Main Feature Areas
+------------------
+1) Licensing and Access
+- License activation and validation flow
+- Splash checks license validity before allowing app use
+- License management screen for activation status
+
+2) Business Setup and Onboarding
+- First-time setup collects business profile and admin credentials
+- Saves business details (name, contact, currency, etc.)
+- Marks setup completion and supports admin device identity for multi-PC scenarios
+
+3) Authentication and Roles
+- Local admin and employee login
+- Password hashing for credential validation
+- Role and permission management for staff access control
+
+4) Product and Catalog Management
+- Product CRUD and category management
+- Bundle/product set support (setting-controlled)
+- Bulk import from spreadsheet sources
+- Database schema includes fields for extended business contexts
+
+5) POS and Sales
+- Cart-based POS checkout flow
+- Payment types: cash/card/credit and split payments
+- Credit limit checks for Khata/credit sales
+- Sale persistence with line items and optional metadata
+- Automatic stock deduction after successful sale
+
+6) Sales Operations and Returns
+- Sales list and sale detail views
+- Return/refund records with return item tracking
+- Sale updates/deletes include stock reconciliation behavior
+
+7) Customer and Khata Management
+- Customer profile management
+- Customer ledger tracking
+- Customer payment recording
+- Balance/due updates connected to sales/payment events
+
+8) Suppliers and Purchasing
+- Supplier records and ledgers
+- Supplier payment flows
+- Purchase order and purchase invoice handling
+- Purchase operations linked to inventory updates
+
+9) Inventory and Stock Control
+- Inventory management screens
+- Stock movement and adjustment records
+- Negative inventory monitoring
+- Product ledger and advanced inventory reporting
+- Low-stock monitoring hooks/services
+
+10) Banking and Financial Tracking
+- Bank account setup and management
+- Bank payment and ledger workflows
+- Cashbook/credit/bank-related reports
+
+11) Expense Management
+- Expense head/category setup
+- Expense entry flow
+- Expense reports
+
+12) Reporting and Export
+- Sales reports with filtering
+- Comprehensive and item-wise reports
+- Daily and staff performance reports
+- CSV/Excel export capabilities
+
+13) Printing and Receipt Output
+- Unified printing service abstraction
+- PDF-based receipts/documents
+- Desktop printer support (including Windows-focused handling)
+- Bluetooth and thermal printing paths
+
+14) Settings and Customization
+- Business/profile settings
+- Appearance/theme settings
+- Printer and receipt customization routes
+- Role permissions and stock management settings
+- License and data-management settings sections
+
+15) Multi-PC Networking
+- Admin node/server and secondary client bootstrap flow
+- LAN discovery mechanism
+- Sync channel over configured ports
+- Network configuration UI
+
+16) Backup and Restore
+- Local backup and restore operations for DB files
+- Windows auto-backup scheduling/init path
+- Optional cloud upload helper for backup files
+
+Key End-to-End Flows
+--------------------
+Flow A: App Start -> Access Gate
+1. App launches and initializes localization/services.
+2. Splash screen checks license status.
+3. If invalid: route to license activation.
+4. If valid: continue to setup/login decision.
+
+Flow B: First-Time Setup
+1. Detect setup not complete.
+2. Open business setup form.
+3. Save business profile + admin credentials.
+4. Mark setup complete.
+5. Navigate to login.
+
+Flow C: Secondary Device Bootstrap (Multi-PC)
+1. Start discovery for admin host in LAN.
+2. If admin found, connect sync service.
+3. Pull/sync required setup data.
+4. Move to login once ready.
+
+Flow D: Login -> Main App
+1. User enters admin/employee credentials.
+2. Local auth validation runs.
+3. On success, user enters shell navigation and dashboard/POS modules.
+
+Flow E: POS Sale Completion
+1. Cashier builds cart and selects payment method.
+2. Credit rules and limits are validated (if credit sale).
+3. Sale + sale items are saved to local DB.
+4. Stock quantities are reduced per sold items.
+5. Customer due values update when relevant.
+
+Flow F: Purchase/Restock
+1. User creates purchase invoice/order.
+2. Purchase record saves and triggers related refresh/update logic.
+3. Inventory reflects incoming stock flow.
+
+Flow G: Customer/Supplier Payment
+1. Open customer or supplier payment screen.
+2. Record payment against ledger/account.
+3. Balances and related report views update.
+
+Flow H: Return/Refund
+1. Locate sale/transaction.
+2. Create return/refund entry with line items.
+3. Inventory and financial records reconcile accordingly.
+
+Flow I: Backup Lifecycle
+1. User or scheduler triggers backup service.
+2. Database file copied/versioned in backup location.
+3. Optional restore path available when needed.
+
+Flow J: Sync Lifecycle (LAN)
+1. Admin service listens for clients.
+2. Client connects and exchanges sync messages.
+3. Database table updates propagate across nodes.
+
+Tech Stack Snapshot
+-------------------
+- Flutter/Dart app
+- Drift ORM + SQLite local DB
+- Riverpod providers/notifiers
+- go_router navigation
+- Easy localization
+- PDF/printing/bluetooth integrations
+- SharedPreferences-based local configuration
+- Desktop and Windows-specific utility services
+
+Operational Notes
+-----------------
+- Project is offline-first and does not rely on an always-on backend in this repo.
+- Documentation/schema suggest multi-business-mode intent, but active runtime paths appear retail-centric in places.
+- Automated tests are minimal; core reliability currently depends more on runtime flows than broad test coverage.
+
+High-Value Files (for deeper reading)
+-------------------------------------
+- lib/main.dart
+- lib/router/app_router.dart
+- lib/database/tables.dart
+- lib/services/database_service.dart
+- lib/screens/pos_screen.dart
+- lib/providers/sale_provider.dart
+- lib/services/database_sync_service.dart
+- lib/services/network_discovery_service.dart
+- lib/services/multi_pc_bootstrapper.dart
+- lib/screens/splash_screen.dart
+- lib/services/license_service.dart
+- lib/services/backup_service.dart
+- lib/services/windows_backup_service.dart
+- lib/services/cloud_backup_service.dart
+- lib/services/unified_print_service.dart
+

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management Guide | ملازم کے انتظام کی گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .guide-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .step-visual {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-visual.dark-theme {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .visual-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .visual-header {
+            border-color: #334155;
+        }
+        
+        .visual-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .visual-title {
+            color: #e2e8f0;
+        }
+        
+        .form-preview {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed #8b5cf6;
+        }
+        
+        .dark-theme .form-preview {
+            background: #0f172a;
+            border-color: #8b5cf6;
+        }
+        
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        
+        .dark-theme .form-label {
+            color: #e2e8f0;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #8b5cf6;
+        }
+        
+        .dark-theme .form-input {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .btn-secondary {
+            background: #1e293b;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .dark-theme .tips-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-left-color: #8b5cf6;
+        }
+        
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-icon {
+            color: #8b5cf6;
+            font-size: 1.25rem;
+        }
+        
+        .tips-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .tips-title {
+            color: #e2e8f0;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1.25rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #8b5cf6;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #7c3aed;
+        }
+        
+        .dark-theme .back-button {
+            color: #a78bfa;
+        }
+        
+        .dark-theme .back-button:hover {
+            color: #8b5cf6;
+        }
+        
+        .employee-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .employee-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .employee-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .employee-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .employee-name {
+            color: #e2e8f0;
+        }
+        
+        .employee-role {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        
+        .employee-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+        
+        .dark-theme .detail-item {
+            color: #94a3b8;
+        }
+        
+        .detail-icon {
+            color: #8b5cf6;
+        }
+        
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="index.html#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span class="en">Back to Main Guide</span>
+                <span class="ur" style="display: none;">مین گائیڈ پر واپس</span>
+            </a>
+            <h1>
+                <span class="en">Employee Management Guide</span>
+                <span class="ur" style="display: none;">ملازم کے انتظام کی گائیڈ</span>
+            </h1>
+            <p>
+                <span class="en">Learn how to add, manage, and track employee performance</span>
+                <span class="ur" style="display: none;">ملازمین شامل، انتظام اور کارکردگی ٹریک کرنا سیکھیں</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="guides">
+        <div class="container">
+            <!-- Adding Employees -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Adding New Employees</span>
+                            <span class="ur" style="display: none;">نئے ملازمین شامل کرنا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Step-by-step guide to add employees to your system</span>
+                            <span class="ur" style="display: none;">اپنے سسٹم میں ملازمین شامل کرنے کا قدم بہ قدم گائیڈ</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 1: Navigate to Employee Management</span>
+                                <span class="ur" style="display: none;">قدم 1: ملازم کے انتظام میں جائیں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">From the main dashboard, click on the "Employee Management" or "Staff" section. This will take you to the employee management area.</span>
+                            <span class="ur" style="display: none;">مین ڈیش بورڈ سے، "ملازم کا انتظام" یا "اسٹاف" سیکشن پر کلک کریں۔ یہ آپ کو ملازم کے انتظام کے علاقے میں لے جائے گا۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 2: Click Add Employee</span>
+                                <span class="ur" style="display: none;">قدم 2: ملازم شامل کریں پر کلک کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Look for the "Add Employee" or "+" button, usually located at the top of the employees list.</span>
+                            <span class="ur" style="display: none;">"ملازم شامل کریں" یا "+" بٹن تلاش کریں، جو عام طور پر ملازمین کی فہرست کے اوپر ہوتا ہے۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 3: Fill Employee Information</span>
+                                <span class="ur" style="display: none;">قدم 3: ملازم کی معلومات بھریں</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-preview">
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">First Name *</span>
+                                        <span class="ur" style="display: none;">پہلا نام *</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Enter first name" placeholder-ur="پہلا نام درج کریں">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Last Name *</span>
+                                        <span class="ur" style="display: none;">آخری نام *</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Enter last name" placeholder-ur="آخری نام درج کریں">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Employee ID *</span>
+                                    <span class="ur" style="display: none;">ملازم آئی ڈی *</span>
+                                </label>
+                                <input type="text" class="form-input" placeholder="EMP001" placeholder-ur="EMP001">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Phone Number *</span>
+                                        <span class="ur" style="display: none;">فون نمبر *</span>
+                                    </label>
+                                    <input type="tel" class="form-input" placeholder="Phone number" placeholder-ur="فون نمبر">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Email Address</span>
+                                        <span class="ur" style="display: none;">ای میل ایڈریس</span>
+                                    </label>
+                                    <input type="email" class="form-input" placeholder="Email address" placeholder-ur="ای میل ایڈریس">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Address</span>
+                                    <span class="ur" style="display: none;">پتہ</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Complete address" placeholder-ur="مکمل پتہ"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Position/Role *</span>
+                                        <span class="ur" style="display: none;">عہدہ/کردار *</span>
+                                    </label>
+                                    <select class="form-input">
+                                        <option>
+                                            <span class="en">Select Position</span>
+                                            <span class="ur" style="display: none;">عہدہ منتخب کریں</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Cashier</span>
+                                            <span class="ur" style="display: none;">کیشیئر</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Manager</span>
+                                            <span class="ur" style="display: none;">مینیجر</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Sales Associate</span>
+                                            <span class="ur" style="display: none;">سیلز ایسوسی ایٹ</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Inventory Clerk</span>
+                                            <span class="ur" style="display: none;">انوینٹری کلرک</span>
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Department</span>
+                                        <span class="ur" style="display: none;">محکمہ</span>
+                                    </label>
+                                    <select class="form-input">
+                                        <option>
+                                            <span class="en">Sales</span>
+                                            <span class="ur" style="display: none;">فروخت</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Inventory</span>
+                                            <span class="ur" style="display: none;">انوینٹری</span>
+                                        </option>
+                                        <option>
+                                            <span class="en">Administration</span>
+                                            <span class="ur" style="display: none;">انتظامیہ</span>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Hire Date *</span>
+                                        <span class="ur" style="display: none;">ملازمت کی تاریخ *</span>
+                                    </label>
+                                    <input type="date" class="form-input">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Salary</span>
+                                        <span class="ur" style="display: none;">تنخواہ</span>
+                                    </label>
+                                    <input type="number" class="form-input" placeholder="0.00" step="0.01">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Notes</span>
+                                    <span class="ur" style="display: none;">نوٹس</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Additional notes (optional)" placeholder-ur="اضافی نوٹس (اختیاری)"></textarea>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button class="btn btn-secondary">
+                                    <span class="en">Cancel</span>
+                                    <span class="ur" style="display: none;">منسوخ</span>
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    <span class="en">Save Employee</span>
+                                    <span class="ur" style="display: none;">ملازم محفوظ کریں</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 4: Save and Confirm</span>
+                                <span class="ur" style="display: none;">قدم 4: محفوظ اور تصدیق کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">After filling all required fields, click "Save Employee" to add them to your system. You'll see a confirmation message.</span>
+                            <span class="ur" style="display: none;">تمام ضروری فیلڈز بھرنے کے بعد، انہیں اپنے سسٹم میں شامل کرنے کے لیے "ملازم محفوظ کریں" پر کلک کریں۔ آپ کو تصدیقی پیغام نظر آئے گا۔</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Managing Employees -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Managing Existing Employees</span>
+                            <span class="ur" style="display: none;">موجودہ ملازمین کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to edit, update, and manage employee information</span>
+                            <span class="ur" style="display: none;">ملازم کی معلومات میں ترمیم، اپڈیٹ اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Viewing Employee List</span>
+                                <span class="ur" style="display: none;">ملازمین کی فہرست دیکھنا</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">The employee list shows all your staff with their key information:</span>
+                            <span class="ur" style="display: none;">ملازمین کی فہرست آپ کے تمام اسٹاف کو ان کی اہم معلومات کے ساتھ دکھاتی ہے:</span>
+                        </p>
+                        
+                        <div class="employee-card">
+                            <div class="employee-header">
+                                <div class="employee-name">Ahmed Ali</div>
+                                <div class="employee-role">
+                                    <span class="en">Cashier</span>
+                                    <span class="ur" style="display: none;">کیشیئر</span>
+                                </div>
+                            </div>
+                            <div class="employee-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-id-card detail-icon"></i>
+                                    <span>EMP001</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-phone detail-icon"></i>
+                                    <span>+92 300 1234567</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-envelope detail-icon"></i>
+                                    <span>ahmed@company.com</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-calendar detail-icon"></i>
+                                    <span>Hired: Jan 2024</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Editing Employee Information</span>
+                                <span class="ur" style="display: none;">ملازم کی معلومات میں ترمیم</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">To edit an employee, click on the employee name or the edit button. You can update:</span>
+                            <span class="ur" style="display: none;">ملازم میں ترمیم کرنے کے لیے، ملازم کے نام یا ترمیم بٹن پر کلک کریں۔ آپ اپڈیٹ کر سکتے ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Personal information (name, contact details)</span>
+                                <span class="ur" style="display: none;">ذاتی معلومات (نام، رابطہ کی تفصیلات)</span>
+                            </li>
+                            <li>
+                                <span class="en">Position and department</span>
+                                <span class="ur" style="display: none;">عہدہ اور محکمہ</span>
+                            </li>
+                            <li>
+                                <span class="en">Salary and benefits</span>
+                                <span class="ur" style="display: none;">تنخواہ اور فوائد</span>
+                            </li>
+                            <li>
+                                <span class="en">Employment status (active/inactive)</span>
+                                <span class="ur" style="display: none;">ملازمت کی حالت (فعال/غیر فعال)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Staff Performance Tracking -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Staff Performance Tracking</span>
+                            <span class="ur" style="display: none;">اسٹاف کی کارکردگی کا ٹریکنگ</span>
+                        </h3>
+                        <p>
+                            <span class="en">Monitor and analyze employee performance metrics</span>
+                            <span class="ur" style="display: none;">ملازم کی کارکردگی کے میٹرکس کا جائزہ اور تجزیہ کریں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Performance Metrics</span>
+                                <span class="ur" style="display: none;">کارکردگی کے میٹرکس</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Track key performance indicators for each employee:</span>
+                            <span class="ur" style="display: none;">ہر ملازم کے لیے اہم کارکردگی کے اشارے ٹریک کریں:</span>
+                        </p>
+                        
+                        <div class="performance-metrics">
+                            <div class="metric-card">
+                                <div class="metric-value">$12,450</div>
+                                <div class="metric-label">
+                                    <span class="en">Total Sales</span>
+                                    <span class="ur" style="display: none;">کل فروخت</span>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">45</div>
+                                <div class="metric-label">
+                                    <span class="en">Transactions</span>
+                                    <span class="ur" style="display: none;">لین دین</span>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">8.5</div>
+                                <div class="metric-label">
+                                    <span class="en">Avg Rating</span>
+                                    <span class="ur" style="display: none;">اوسط ریٹنگ</span>
+                                </div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">
+                                    <span class="en">Attendance</span>
+                                    <span class="ur" style="display: none;">حاضری</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Attendance Management</span>
+                                <span class="ur" style="display: none;">حاضری کا انتظام</span>
+                            </div>
+                        </div>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Staff Performance section</span>
+                                <span class="ur" style="display: none;">اسٹاف کی کارکردگی کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">View attendance records for each employee</span>
+                                <span class="ur" style="display: none;">ہر ملازم کے لیے حاضری کے ریکارڈ دیکھیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Track check-in and check-out times</span>
+                                <span class="ur" style="display: none;">چیک ان اور چیک آؤٹ کے اوقات ٹریک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Generate attendance reports</span>
+                                <span class="ur" style="display: none;">حاضری کی رپورٹس بنائیں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Best Practices -->
+            <div class="tips-section">
+                <div class="tips-header">
+                    <i class="fas fa-lightbulb tips-icon"></i>
+                    <div class="tips-title">
+                        <span class="en">Tips & Best Practices</span>
+                        <span class="ur" style="display: none;">نصائح اور بہترین طریقے</span>
+                    </div>
+                </div>
+                <ul class="tips-list">
+                    <li>
+                        <span class="en">Keep employee records up to date</span>
+                        <span class="ur" style="display: none;">ملازم کے ریکارڈز کو اپ ٹو ڈیٹ رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Set clear roles and responsibilities for each employee</span>
+                        <span class="ur" style="display: none;">ہر ملازم کے لیے واضح کردار اور ذمہ داریاں طے کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Regularly review and update employee performance</span>
+                        <span class="ur" style="display: none;">ملازم کی کارکردگی کا باقاعدگی سے جائزہ لیں اور اپڈیٹ کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Use performance metrics to identify top performers</span>
+                        <span class="ur" style="display: none;">بہترین کارکردگی دکھانے والوں کی شناخت کے لیے کارکردگی کے میٹرکس استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Maintain proper attendance records</span>
+                        <span class="ur" style="display: none;">مناسب حاضری کے ریکارڈز برقرار رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Provide regular feedback and training opportunities</span>
+                        <span class="ur" style="display: none;">باقاعدہ فیڈ بیک اور تربیتی مواقع فراہم کریں</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Employee Management Guide</span>
+                        <span class="ur" style="display: none;">ملازم کے انتظام کی گائیڈ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Master employee management in your POS system</span>
+                        <span class="ur" style="display: none;">اپنے پوس سسٹم میں ملازم کے انتظام میں مہارت حاصل کریں</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="en">Main Guide</span>
+                            <span class="ur" style="display: none;">مین گائیڈ</span>
+                        </a></li>
+                        <li><a href="product-guide.html">
+                            <span class="en">Product Guide</span>
+                            <span class="ur" style="display: none;">مصنوعات گائیڈ</span>
+                        </a></li>
+                        <li><a href="supplier-guide.html">
+                            <span class="en">Supplier Guide</span>
+                            <span class="ur" style="display: none;">سپلائر گائیڈ</span>
+                        </a></li>
+                        <li><a href="bank-guide.html">
+                            <span class="en">Banking Guide</span>
+                            <span class="ur" style="display: none;">بینکنگ گائیڈ</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

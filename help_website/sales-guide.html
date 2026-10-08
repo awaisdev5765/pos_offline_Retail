@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & POS Guide | فروخت اور پوس گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .guide-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .step-visual {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-visual.dark-theme {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .visual-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .visual-header {
+            border-color: #334155;
+        }
+        
+        .visual-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .visual-title {
+            color: #e2e8f0;
+        }
+        
+        .pos-interface {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed #f59e0b;
+            margin: 1rem 0;
+        }
+        
+        .dark-theme .pos-interface {
+            background: #0f172a;
+            border-color: #f59e0b;
+        }
+        
+        .pos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .pos-header {
+            border-color: #334155;
+        }
+        
+        .pos-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .dark-theme .pos-title {
+            color: #e2e8f0;
+        }
+        
+        .pos-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .products-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .products-section {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .cart-section {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .cart-section {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-card {
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            background: #f59e0b;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .dark-theme .product-card {
+            background: #0f172a;
+            border-color: #334155;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .product-price {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .dark-theme .product-price {
+            color: #94a3b8;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .cart-item {
+            border-color: #334155;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .item-name {
+            color: #e2e8f0;
+        }
+        
+        .item-price {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .dark-theme .item-price {
+            color: #94a3b8;
+        }
+        
+        .item-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-btn {
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quantity-btn:hover {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .dark-theme .quantity-btn {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .quantity-input {
+            width: 3rem;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+        }
+        
+        .dark-theme .quantity-input {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .cart-total {
+            background: #f59e0b;
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .total-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .payment-section {
+            margin-top: 1.5rem;
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .payment-btn {
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .payment-btn.active {
+            background: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        
+        .dark-theme .payment-btn {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .process-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .process-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .dark-theme .tips-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-left-color: #f59e0b;
+        }
+        
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-icon {
+            color: #f59e0b;
+            font-size: 1.25rem;
+        }
+        
+        .tips-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .tips-title {
+            color: #e2e8f0;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1.25rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f59e0b;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #d97706;
+        }
+        
+        .dark-theme .back-button {
+            color: #fbbf24;
+        }
+        
+        .dark-theme .back-button:hover {
+            color: #f59e0b;
+        }
+        
+        @media (max-width: 768px) {
+            .pos-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="index.html#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span class="en">Back to Main Guide</span>
+                <span class="ur" style="display: none;">مین گائیڈ پر واپس</span>
+            </a>
+            <h1>
+                <span class="en">Sales & POS Guide</span>
+                <span class="ur" style="display: none;">فروخت اور پوس گائیڈ</span>
+            </h1>
+            <p>
+                <span class="en">Learn how to process sales and manage transactions effectively</span>
+                <span class="ur" style="display: none;">فروخت پروسیس اور لین دین کا مؤثر انتظام کرنا سیکھیں</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="guides">
+        <div class="container">
+            <!-- POS Interface Overview -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">POS Interface Overview</span>
+                            <span class="ur" style="display: none;">پوس انٹرفیس کا جائزہ</span>
+                        </h3>
+                        <p>
+                            <span class="en">Understanding the point-of-sale interface and its components</span>
+                            <span class="ur" style="display: none;">پوائنٹ آف سیل انٹرفیس اور اس کے اجزاء کو سمجھنا</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">POS Screen Layout</span>
+                                <span class="ur" style="display: none;">پوس اسکرین کا لی آؤٹ</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">The POS interface is divided into two main sections:</span>
+                            <span class="ur" style="display: none;">پوس انٹرفیس دو اہم حصوں میں تقسیم ہے:</span>
+                        </p>
+                        
+                        <div class="pos-interface">
+                            <div class="pos-header">
+                                <div class="pos-title">
+                                    <span class="en">Point of Sale System</span>
+                                    <span class="ur" style="display: none;">پوائنٹ آف سیل سسٹم</span>
+                                </div>
+                                <div class="pos-title">
+                                    <span class="en">Sale #12345</span>
+                                    <span class="ur" style="display: none;">فروخت #12345</span>
+                                </div>
+                            </div>
+                            
+                            <div class="pos-layout">
+                                <div class="products-section">
+                                    <h4>
+                                        <span class="en">Products</span>
+                                        <span class="ur" style="display: none;">مصنوعات</span>
+                                    </h4>
+                                    <div class="product-grid">
+                                        <div class="product-card">
+                                            <div class="product-name">iPhone 15</div>
+                                            <div class="product-price">$999</div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="product-name">Samsung TV</div>
+                                            <div class="product-price">$599</div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="product-name">Laptop</div>
+                                            <div class="product-price">$1299</div>
+                                        </div>
+                                        <div class="product-card">
+                                            <div class="product-name">Headphones</div>
+                                            <div class="product-price">$199</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="cart-section">
+                                    <h4>
+                                        <span class="en">Shopping Cart</span>
+                                        <span class="ur" style="display: none;">خریداری کی ٹوکری</span>
+                                    </h4>
+                                    <div class="cart-item">
+                                        <div class="item-details">
+                                            <div class="item-name">iPhone 15</div>
+                                            <div class="item-price">$999.00</div>
+                                        </div>
+                                        <div class="item-controls">
+                                            <button class="quantity-btn">-</button>
+                                            <input type="number" class="quantity-input" value="1" min="1">
+                                            <button class="quantity-btn">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="cart-item">
+                                        <div class="item-details">
+                                            <div class="item-name">Headphones</div>
+                                            <div class="item-price">$199.00</div>
+                                        </div>
+                                        <div class="item-controls">
+                                            <button class="quantity-btn">-</button>
+                                            <input type="number" class="quantity-input" value="2" min="1">
+                                            <button class="quantity-btn">+</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="cart-total">
+                                        <div class="total-amount">$1,397.00</div>
+                                        <div>
+                                            <span class="en">Total</span>
+                                            <span class="ur" style="display: none;">کل</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="payment-section">
+                                        <h5>
+                                            <span class="en">Payment Method</span>
+                                            <span class="ur" style="display: none;">ادائیگی کا طریقہ</span>
+                                        </h5>
+                                        <div class="payment-methods">
+                                            <button class="payment-btn active">
+                                                <span class="en">Cash</span>
+                                                <span class="ur" style="display: none;">نقد</span>
+                                            </button>
+                                            <button class="payment-btn">
+                                                <span class="en">Card</span>
+                                                <span class="ur" style="display: none;">کارڈ</span>
+                                            </button>
+                                        </div>
+                                        <button class="process-btn">
+                                            <i class="fas fa-check"></i>
+                                            <span class="en">Process Sale</span>
+                                            <span class="ur" style="display: none;">فروخت پروسیس کریں</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Making a Sale -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Making a Sale</span>
+                            <span class="ur" style="display: none;">فروخت کرنا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Step-by-step guide to process customer transactions</span>
+                            <span class="ur" style="display: none;">کسٹمر کے لین دین کو پروسیس کرنے کا قدم بہ قدم گائیڈ</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 1: Add Products to Cart</span>
+                                <span class="ur" style="display: none;">قدم 1: کارٹ میں مصنوعات شامل کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">There are several ways to add products to the cart:</span>
+                            <span class="ur" style="display: none;">کارٹ میں مصنوعات شامل کرنے کے کئی طریقے ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Click on product cards in the products section</span>
+                                <span class="ur" style="display: none;">مصنوعات کے سیکشن میں مصنوعات کے کارڈز پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Scan barcode using the barcode scanner</span>
+                                <span class="ur" style="display: none;">بارکوڈ اسکینر استعمال کرکے بارکوڈ اسکین کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Search for products by name or code</span>
+                                <span class="ur" style="display: none;">نام یا کوڈ سے مصنوعات تلاش کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Browse products by category</span>
+                                <span class="ur" style="display: none;">قسم کے حساب سے مصنوعات براؤز کریں</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 2: Adjust Quantities</span>
+                                <span class="ur" style="display: none;">قدم 2: مقدار ایڈجسٹ کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Use the quantity controls to adjust the number of items:</span>
+                            <span class="ur" style="display: none;">آئٹمز کی تعداد ایڈجسٹ کرنے کے لیے مقدار کنٹرولز استعمال کریں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Click "+" to increase quantity</span>
+                                <span class="ur" style="display: none;">مقدار بڑھانے کے لیے "+" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "-" to decrease quantity</span>
+                                <span class="ur" style="display: none;">مقدار کم کرنے کے لیے "-" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Type directly in the quantity field</span>
+                                <span class="ur" style="display: none;">مقدار فیلڈ میں براہ راست ٹائپ کریں</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 3: Apply Discounts (Optional)</span>
+                                <span class="ur" style="display: none;">قدم 3: رعایت لاگو کریں (اختیاری)</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">You can apply discounts in several ways:</span>
+                            <span class="ur" style="display: none;">آپ کئی طریقوں سے رعایت لاگو کر سکتے ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Percentage discount on total amount</span>
+                                <span class="ur" style="display: none;">کل رقم پر فیصد رعایت</span>
+                            </li>
+                            <li>
+                                <span class="en">Fixed amount discount</span>
+                                <span class="ur" style="display: none;">مقررہ رقم کی رعایت</span>
+                            </li>
+                            <li>
+                                <span class="en">Individual item discounts</span>
+                                <span class="ur" style="display: none;">انفرادی آئٹم کی رعایتیں</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 4: Select Payment Method</span>
+                                <span class="ur" style="display: none;">قدم 4: ادائیگی کا طریقہ منتخب کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Choose the appropriate payment method:</span>
+                            <span class="ur" style="display: none;">مناسب ادائیگی کا طریقہ منتخب کریں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Cash - Enter the amount received</span>
+                                <span class="ur" style="display: none;">نقد - وصول شدہ رقم درج کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Card - Process card payment</span>
+                                <span class="ur" style="display: none;">کارڈ - کارڈ کی ادائیگی پروسیس کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Split Payment - Multiple payment methods</span>
+                                <span class="ur" style="display: none;">تقسیم ادائیگی - متعدد ادائیگی کے طریقے</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 5: Complete the Sale</span>
+                                <span class="ur" style="display: none;">قدم 5: فروخت مکمل کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Final steps to complete the transaction:</span>
+                            <span class="ur" style="display: none;">لین دین مکمل کرنے کے آخری اقدامات:</span>
+                        </p>
+                        <ol>
+                            <li>
+                                <span class="en">Review the order summary</span>
+                                <span class="ur" style="display: none;">آرڈر کا خلاصہ جائزہ لیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Process Sale" to complete</span>
+                                <span class="ur" style="display: none;">مکمل کرنے کے لیے "فروخت پروسیس کریں" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Print receipt (if printer is connected)</span>
+                                <span class="ur" style="display: none;">رسید پرنٹ کریں (اگر پرنٹر کنیکٹ ہے)</span>
+                            </li>
+                            <li>
+                                <span class="en">Update inventory automatically</span>
+                                <span class="ur" style="display: none;">انوینٹری کو خودکار طور پر اپڈیٹ کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Management -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Customer Management</span>
+                            <span class="ur" style="display: none;">کسٹمر کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to manage customer information and purchase history</span>
+                            <span class="ur" style="display: none;">کسٹمر کی معلومات اور خریداری کی تاریخ کا انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Adding Customers</span>
+                                <span class="ur" style="display: none;">کسٹمرز شامل کرنا</span>
+                            </div>
+                        </div>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Customers section from the main menu</span>
+                                <span class="ur" style="display: none;">مین مینو سے کسٹمرز کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Add Customer" button</span>
+                                <span class="ur" style="display: none;">"کسٹمر شامل کریں" بٹن پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Fill in customer details (name, phone, email, address)</span>
+                                <span class="ur" style="display: none;">کسٹمر کی تفصیلات بھریں (نام، فون، ای میل، پتہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Save customer information</span>
+                                <span class="ur" style="display: none;">کسٹمر کی معلومات محفوظ کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Viewing Purchase History</span>
+                                <span class="ur" style="display: none;">خریداری کی تاریخ دیکھنا</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Track customer purchase history and preferences:</span>
+                            <span class="ur" style="display: none;">کسٹمر کی خریداری کی تاریخ اور ترجیحات کا ٹریک کریں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">View all previous purchases</span>
+                                <span class="ur" style="display: none;">تمام پچھلی خریداریاں دیکھیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Track total spending</span>
+                                <span class="ur" style="display: none;">کل خرچ کا ٹریک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Identify frequent customers</span>
+                                <span class="ur" style="display: none;">باقاعدہ کسٹمرز کی شناخت کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Offer personalized discounts</span>
+                                <span class="ur" style="display: none;">ذاتی رعایتیں پیش کریں</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Best Practices -->
+            <div class="tips-section">
+                <div class="tips-header">
+                    <i class="fas fa-lightbulb tips-icon"></i>
+                    <div class="tips-title">
+                        <span class="en">Tips & Best Practices</span>
+                        <span class="ur" style="display: none;">نصائح اور بہترین طریقے</span>
+                    </div>
+                </div>
+                <ul class="tips-list">
+                    <li>
+                        <span class="en">Always verify product prices before processing</span>
+                        <span class="ur" style="display: none;">پروسیس کرنے سے پہلے ہمیشہ مصنوعات کی قیمتوں کی تصدیق کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Use barcode scanning for faster checkout</span>
+                        <span class="ur" style="display: none;">تیز چیک آؤٹ کے لیے بارکوڈ اسکیننگ استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Keep customer information updated</span>
+                        <span class="ur" style="display: none;">کسٹمر کی معلومات کو اپ ٹو ڈیٹ رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Train staff on proper POS procedures</span>
+                        <span class="ur" style="display: none;">اسٹاف کو مناسب پوس طریقہ کار کی تربیت دیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Regularly backup sales data</span>
+                        <span class="ur" style="display: none;">فروخت کے ڈیٹا کا باقاعدہ بیک اپ لیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Monitor daily sales reports</span>
+                        <span class="ur" style="display: none;">روزانہ فروخت کی رپورٹس کا جائزہ لیں</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Sales & POS Guide</span>
+                        <span class="ur" style="display: none;">فروخت اور پوس گائیڈ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Master sales processing in your POS system</span>
+                        <span class="ur" style="display: none;">اپنے پوس سسٹم میں فروخت پروسیسنگ میں مہارت حاصل کریں</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="en">Main Guide</span>
+                            <span class="ur" style="display: none;">مین گائیڈ</span>
+                        </a></li>
+                        <li><a href="product-guide.html">
+                            <span class="en">Product Guide</span>
+                            <span class="ur" style="display: none;">مصنوعات گائیڈ</span>
+                        </a></li>
+                        <li><a href="supplier-guide.html">
+                            <span class="en">Supplier Guide</span>
+                            <span class="ur" style="display: none;">سپلائر گائیڈ</span>
+                        </a></li>
+                        <li><a href="bank-guide.html">
+                            <span class="en">Banking Guide</span>
+                            <span class="ur" style="display: none;">بینکنگ گائیڈ</span>
+                        </a></li>
+                        <li><a href="employee-guide.html">
+                            <span class="en">Employee Guide</span>
+                            <span class="ur" style="display: none;">ملازم گائیڈ</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

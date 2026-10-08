@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline POS System - User Guide | آف لائن پوس سسٹم - صارف گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="#features" class="nav-link">
+                    <span class="en">Features</span>
+                    <span class="ur" style="display: none;">خصوصیات</span>
+                </a>
+                <a href="#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+                <a href="#support" class="nav-link">
+                    <span class="en">Support</span>
+                    <span class="ur" style="display: none;">سپورٹ</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="en">Complete Guide to Offline POS System</span>
+                    <span class="ur" style="display: none;">آف لائن پوس سسٹم کی مکمل گائیڈ</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="en">Learn how to use your POS system effectively - from adding products to managing sales</span>
+                    <span class="ur" style="display: none;">اپنے پوس سسٹم کو مؤثر طریقے سے استعمال کرنا سیکھیں - مصنوعات شامل کرنے سے لے کر فروخت کا انتظام کرنے تک</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#guides" class="btn btn-primary">
+                        <span class="en">Start Learning</span>
+                        <span class="ur" style="display: none;">سیکھنا شروع کریں</span>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <span class="en">View Features</span>
+                        <span class="ur" style="display: none;">خصوصیات دیکھیں</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="dashboard-preview">
+                    <div class="preview-header">
+                        <div class="preview-title">
+                            <span class="en">Dashboard</span>
+                            <span class="ur" style="display: none;">ڈیش بورڈ</span>
+                        </div>
+                    </div>
+                    <div class="preview-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-value">$1,250</div>
+                            <div class="stat-label">
+                                <span class="en">Today's Sales</span>
+                                <span class="ur" style="display: none;">آج کی فروخت</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📦</div>
+                            <div class="stat-value">45</div>
+                            <div class="stat-label">
+                                <span class="en">Products</span>
+                                <span class="ur" style="display: none;">مصنوعات</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">System Features</span>
+                <span class="ur" style="display: none;">سسٹم کی خصوصیات</span>
+            </h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Dashboard & Analytics</span>
+                        <span class="ur" style="display: none;">ڈیش بورڈ اور تجزیات</span>
+                    </h3>
+                    <p>
+                        <span class="en">Real-time sales tracking, revenue analytics, and business insights</span>
+                        <span class="ur" style="display: none;">ریئل ٹائم فروخت کی ٹریکنگ، آمدنی کا تجزیہ، اور کاروباری بصیرت</span>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Product Management</span>
+                        <span class="ur" style="display: none;">مصنوعات کا انتظام</span>
+                    </h3>
+                    <p>
+                        <span class="en">Add, edit, and manage products with barcode support</span>
+                        <span class="ur" style="display: none;">بارکوڈ سپورٹ کے ساتھ مصنوعات شامل، ترمیم اور انتظام کریں</span>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Customer Management</span>
+                        <span class="ur" style="display: none;">کسٹمر کا انتظام</span>
+                    </h3>
+                    <p>
+                        <span class="en">Track customer information and purchase history</span>
+                        <span class="ur" style="display: none;">کسٹمر کی معلومات اور خریداری کی تاریخ کو ٹریک کریں</span>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Supplier Management</span>
+                        <span class="ur" style="display: none;">سپلائر کا انتظام</span>
+                    </h3>
+                    <p>
+                        <span class="en">Manage suppliers and purchase orders</span>
+                        <span class="ur" style="display: none;">سپلائرز اور خریداری کے آرڈرز کا انتظام کریں</span>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Banking System</span>
+                        <span class="ur" style="display: none;">بینکنگ سسٹم</span>
+                    </h3>
+                    <p>
+                        <span class="en">Track bank accounts and financial transactions</span>
+                        <span class="ur" style="display: none;">بینک اکاؤنٹس اور مالی لین دین کو ٹریک کریں</span>
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Sales & POS</span>
+                        <span class="ur" style="display: none;">فروخت اور پوس</span>
+                    </h3>
+                    <p>
+                        <span class="en">Process sales, print receipts, and manage transactions</span>
+                        <span class="ur" style="display: none;">فروخت پروسیس کریں، رسید پرنٹ کریں، اور لین دین کا انتظام کریں</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Guide -->
+    <section id="quick-start" class="quick-start">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Quick Start Guide</span>
+                <span class="ur" style="display: none;">فوری شروع گائیڈ</span>
+            </h2>
+            <div class="quick-start-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>
+                            <span class="en">Add Your First Product</span>
+                            <span class="ur" style="display: none;">اپنی پہلی مصنوعات شامل کریں</span>
+                        </h3>
+                        <p>
+                            <span class="en">Start by adding products to your inventory</span>
+                            <span class="ur" style="display: none;">اپنے انوینٹری میں مصنوعات شامل کرکے شروع کریں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>
+                            <span class="en">Set Up Suppliers</span>
+                            <span class="ur" style="display: none;">سپلائرز سیٹ اپ کریں</span>
+                        </h3>
+                        <p>
+                            <span class="en">Add supplier information for purchase orders</span>
+                            <span class="ur" style="display: none;">خریداری کے آرڈرز کے لیے سپلائر کی معلومات شامل کریں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>
+                            <span class="en">Configure Banking</span>
+                            <span class="ur" style="display: none;">بینکنگ کنفیگر کریں</span>
+                        </h3>
+                        <p>
+                            <span class="en">Add bank accounts for financial tracking</span>
+                            <span class="ur" style="display: none;">مالی ٹریکنگ کے لیے بینک اکاؤنٹس شامل کریں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>
+                            <span class="en">Start Making Sales</span>
+                            <span class="ur" style="display: none;">فروخت شروع کریں</span>
+                        </h3>
+                        <p>
+                            <span class="en">Use the POS system to process customer transactions</span>
+                            <span class="ur" style="display: none;">کسٹمر کے لین دین کو پروسیس کرنے کے لیے پوس سسٹم استعمال کریں</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Guides -->
+    <section id="guides" class="guides">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Detailed Guides</span>
+                <span class="ur" style="display: none;">تفصیلی گائیڈز</span>
+            </h2>
+            <p style="margin: -0.5rem 0 1.5rem; text-align: center;">
+                <a href="beginner-complete-guide.html" class="btn btn-primary" style="display: inline-block; text-decoration: none;">
+                    <span class="en">New to POS? Start here — full beginner manual (install, license, backups)</span>
+                    <span class="ur" style="display: none;">نئے صارفین: مکمل ابتدائی گائیڈ</span>
+                </a>
+            </p>
+            
+            <!-- Product Management Guide -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Product Management</span>
+                            <span class="ur" style="display: none;">مصنوعات کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to add, edit, and manage products in your inventory</span>
+                            <span class="ur" style="display: none;">اپنے انوینٹری میں مصنوعات شامل، ترمیم اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Adding a New Product</span>
+                            <span class="ur" style="display: none;">نئی مصنوعات شامل کرنا</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Go to the Products section from the main dashboard</span>
+                                <span class="ur" style="display: none;">مین ڈیش بورڈ سے مصنوعات کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click on "Add Product" button</span>
+                                <span class="ur" style="display: none;">"مصنوعات شامل کریں" بٹن پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Fill in the product details:</span>
+                                <span class="ur" style="display: none;">مصنوعات کی تفصیلات بھریں:</span>
+                                <ul>
+                                    <li>
+                                        <span class="en">Product Name (required)</span>
+                                        <span class="ur" style="display: none;">مصنوعات کا نام (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Category (required)</span>
+                                        <span class="ur" style="display: none;">قسم (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Price and Cost</span>
+                                        <span class="ur" style="display: none;">قیمت اور لاگت</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Stock quantity</span>
+                                        <span class="ur" style="display: none;">اسٹاک کی مقدار</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Barcode (optional)</span>
+                                        <span class="ur" style="display: none;">بارکوڈ (اختیاری)</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="en">Click "Save" to add the product</span>
+                                <span class="ur" style="display: none;">مصنوعات شامل کرنے کے لیے "محفوظ کریں" پر کلک کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Managing Product Categories</span>
+                            <span class="ur" style="display: none;">مصنوعات کی اقسام کا انتظام</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Categories section</span>
+                                <span class="ur" style="display: none;">اقسام کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Add Category" to create new categories</span>
+                                <span class="ur" style="display: none;">نئی اقسام بنانے کے لیے "قسم شامل کریں" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Common categories include: Electronics, Clothing, Food, etc.</span>
+                                <span class="ur" style="display: none;">عام اقسام میں شامل ہیں: الیکٹرانکس، کپڑے، کھانا، وغیرہ</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supplier Management Guide -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Supplier Management</span>
+                            <span class="ur" style="display: none;">سپلائر کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to add and manage suppliers for your business</span>
+                            <span class="ur" style="display: none;">اپنے کاروبار کے لیے سپلائرز شامل اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Adding a New Supplier</span>
+                            <span class="ur" style="display: none;">نیا سپلائر شامل کرنا</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Navigate to Suppliers section from the dashboard</span>
+                                <span class="ur" style="display: none;">ڈیش بورڈ سے سپلائرز کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Add Supplier" button</span>
+                                <span class="ur" style="display: none;">"سپلائر شامل کریں" بٹن پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Fill in supplier information:</span>
+                                <span class="ur" style="display: none;">سپلائر کی معلومات بھریں:</span>
+                                <ul>
+                                    <li>
+                                        <span class="en">Company Name (required)</span>
+                                        <span class="ur" style="display: none;">کمپنی کا نام (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Contact Person (required)</span>
+                                        <span class="ur" style="display: none;">رابطہ شخص (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Phone Number (required)</span>
+                                        <span class="ur" style="display: none;">فون نمبر (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Email Address (optional)</span>
+                                        <span class="ur" style="display: none;">ای میل ایڈریس (اختیاری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Address and Location</span>
+                                        <span class="ur" style="display: none;">پتہ اور مقام</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="en">Set credit limit and payment terms</span>
+                                <span class="ur" style="display: none;">کریڈٹ لیمٹ اور ادائیگی کی شرائط طے کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Save" to add the supplier</span>
+                                <span class="ur" style="display: none;">سپلائر شامل کرنے کے لیے "محفوظ کریں" پر کلک کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banking System Guide -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Banking System</span>
+                            <span class="ur" style="display: none;">بینکنگ سسٹم</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to set up and manage bank accounts</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹس سیٹ اپ اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Adding Bank Accounts</span>
+                            <span class="ur" style="display: none;">بینک اکاؤنٹس شامل کرنا</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Banking System from the main menu</span>
+                                <span class="ur" style="display: none;">مین مینو سے بینکنگ سسٹم میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Add Bank" button</span>
+                                <span class="ur" style="display: none;">"بینک شامل کریں" بٹن پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Enter bank details:</span>
+                                <span class="ur" style="display: none;">بینک کی تفصیلات درج کریں:</span>
+                                <ul>
+                                    <li>
+                                        <span class="en">Bank Name (required)</span>
+                                        <span class="ur" style="display: none;">بینک کا نام (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Bank Code (required)</span>
+                                        <span class="ur" style="display: none;">بینک کوڈ (ضروری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Account Number (optional)</span>
+                                        <span class="ur" style="display: none;">اکاؤنٹ نمبر (اختیاری)</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Branch Information</span>
+                                        <span class="ur" style="display: none;">برانچ کی معلومات</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="en">Set initial balance if needed</span>
+                                <span class="ur" style="display: none;">اگر ضروری ہو تو ابتدائی بیلنس سیٹ کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Save" to add the bank</span>
+                                <span class="ur" style="display: none;">بینک شامل کرنے کے لیے "محفوظ کریں" پر کلک کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales & POS Guide -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Sales & POS Operations</span>
+                            <span class="ur" style="display: none;">فروخت اور پوس آپریشنز</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to process sales and manage transactions</span>
+                            <span class="ur" style="display: none;">فروخت پروسیس اور لین دین کا انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="guide-content">
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Making a Sale</span>
+                            <span class="ur" style="display: none;">فروخت کرنا</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Go to POS screen from the dashboard</span>
+                                <span class="ur" style="display: none;">ڈیش بورڈ سے پوس اسکرین میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Add products to cart by:</span>
+                                <span class="ur" style="display: none;">کارٹ میں مصنوعات شامل کریں:</span>
+                                <ul>
+                                    <li>
+                                        <span class="en">Scanning barcode</span>
+                                        <span class="ur" style="display: none;">بارکوڈ اسکین کرکے</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Searching by product name</span>
+                                        <span class="ur" style="display: none;">مصنوعات کے نام سے تلاش کرکے</span>
+                                    </li>
+                                    <li>
+                                        <span class="en">Browsing product categories</span>
+                                        <span class="ur" style="display: none;">مصنوعات کی اقسام براؤز کرکے</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="en">Adjust quantities as needed</span>
+                                <span class="ur" style="display: none;">ضرورت کے مطابق مقدار ایڈجسٹ کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Apply discounts if any</span>
+                                <span class="ur" style="display: none;">اگر کوئی ہو تو رعایت لاگو کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Select payment method (Cash, Card, etc.)</span>
+                                <span class="ur" style="display: none;">ادائیگی کا طریقہ منتخب کریں (نقد، کارڈ، وغیرہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Process the payment</span>
+                                <span class="ur" style="display: none;">ادائیگی پروسیس کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Print receipt (if printer is connected)</span>
+                                <span class="ur" style="display: none;">رسید پرنٹ کریں (اگر پرنٹر کنیکٹ ہے)</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="guide-step">
+                        <h4>
+                            <span class="en">Managing Customers</span>
+                            <span class="ur" style="display: none;">کسٹمرز کا انتظام</span>
+                        </h4>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Customers section</span>
+                                <span class="ur" style="display: none;">کسٹمرز کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "Add Customer" to create new customer</span>
+                                <span class="ur" style="display: none;">نیا کسٹمر بنانے کے لیے "کسٹمر شامل کریں" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Enter customer details (name, phone, email, address)</span>
+                                <span class="ur" style="display: none;">کسٹمر کی تفصیلات درج کریں (نام، فون، ای میل، پتہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Save customer information</span>
+                                <span class="ur" style="display: none;">کسٹمر کی معلومات محفوظ کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keyboard Shortcuts -->
+    <section id="shortcuts" class="shortcuts">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Keyboard Shortcuts</span>
+                <span class="ur" style="display: none;">کی بورڈ شارٹ کٹس</span>
+            </h2>
+            <div class="shortcuts-grid">
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + N</div>
+                    <div class="shortcut-desc">
+                        <span class="en">New Sale</span>
+                        <span class="ur" style="display: none;">نئی فروخت</span>
+                    </div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + P</div>
+                    <div class="shortcut-desc">
+                        <span class="en">Add Product</span>
+                        <span class="ur" style="display: none;">مصنوعات شامل کریں</span>
+                    </div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Ctrl + C</div>
+                    <div class="shortcut-desc">
+                        <span class="en">Add Customer</span>
+                        <span class="ur" style="display: none;">کسٹمر شامل کریں</span>
+                    </div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">F1</div>
+                    <div class="shortcut-desc">
+                        <span class="en">Help</span>
+                        <span class="ur" style="display: none;">مدد</span>
+                    </div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Esc</div>
+                    <div class="shortcut-desc">
+                        <span class="en">Cancel/Close</span>
+                        <span class="ur" style="display: none;">منسوخ/بند کریں</span>
+                    </div>
+                </div>
+                <div class="shortcut-card">
+                    <div class="shortcut-key">Enter</div>
+                    <div class="shortcut-desc">
+                        <span class="en">Confirm/Submit</span>
+                        <span class="ur" style="display: none;">تصدیق/جمع کریں</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section id="support" class="support">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="en">Need Help?</span>
+                <span class="ur" style="display: none;">مدد چاہیے؟</span>
+            </h2>
+            <div class="support-content">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Documentation</span>
+                        <span class="ur" style="display: none;">دستاویزات</span>
+                    </h3>
+                    <p>
+                        <span class="en">Comprehensive guides and tutorials</span>
+                        <span class="ur" style="display: none;">جامع گائیڈز اور ٹیوٹوریلز</span>
+                    </p>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Video Tutorials</span>
+                        <span class="ur" style="display: none;">ویڈیو ٹیوٹوریلز</span>
+                    </h3>
+                    <p>
+                        <span class="en">Step-by-step video guides</span>
+                        <span class="ur" style="display: none;">قدم بہ قدم ویڈیو گائیڈز</span>
+                    </p>
+                </div>
+                <div class="support-card">
+                    <div class="support-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>
+                        <span class="en">Technical Support</span>
+                        <span class="ur" style="display: none;">ٹیکنیکل سپورٹ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Get help from our support team</span>
+                        <span class="ur" style="display: none;">ہماری سپورٹ ٹیم سے مدد حاصل کریں</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Offline POS System</span>
+                        <span class="ur" style="display: none;">آف لائن پوس سسٹم</span>
+                    </h3>
+                    <p>
+                        <span class="en">Complete point-of-sale solution for your business</span>
+                        <span class="ur" style="display: none;">آپ کے کاروبار کے لیے مکمل پوائنٹ آف سیل حل</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="#home">
+                            <span class="en">Home</span>
+                            <span class="ur" style="display: none;">ہوم</span>
+                        </a></li>
+                        <li><a href="#features">
+                            <span class="en">Features</span>
+                            <span class="ur" style="display: none;">خصوصیات</span>
+                        </a></li>
+                        <li><a href="#guides">
+                            <span class="en">Guides</span>
+                            <span class="ur" style="display: none;">گائیڈز</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Support</span>
+                        <span class="ur" style="display: none;">سپورٹ</span>
+                    </h4>
+                    <ul>
+                        <li><a href="#support">
+                            <span class="en">Help Center</span>
+                            <span class="ur" style="display: none;">ہیلپ سینٹر</span>
+                        </a></li>
+                        <li><a href="#shortcuts">
+                            <span class="en">Shortcuts</span>
+                            <span class="ur" style="display: none;">شارٹ کٹس</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

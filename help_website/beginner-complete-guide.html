@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offline POS — Complete Beginner Manual</title>
+  <style>
+    :root { --bg: #f6f8fb; --card: #fff; --text: #1a1d26; --muted: #5c6578; --accent: #2563eb; --border: #e2e8f0; --warn: #b45309; --ok: #047857; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.65; margin: 0; padding: 1.25rem; }
+    .wrap { max-width: 54rem; margin: 0 auto; }
+    header { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.65rem; margin: 0 0 0.5rem; }
+    .sub { color: var(--muted); font-size: 0.95rem; margin: 0; }
+    nav.toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    nav.toc h2 { font-size: 1rem; margin: 0 0 0.75rem; }
+    nav.toc > ul { margin: 0; padding-left: 1.2rem; columns: 1; }
+    @media (min-width: 640px) {
+      nav.toc > ul { columns: 2; column-gap: 2rem; }
+    }
+    nav.toc a { color: var(--accent); text-decoration: none; }
+    nav.toc a:hover { text-decoration: underline; }
+    nav.toc ul ul { margin: 0.25rem 0 0.5rem; padding-left: 1rem; font-size: 0.9rem; }
+    section { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+    section > h2 { font-size: 1.2rem; margin: 0 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 1.05rem; margin: 1.35rem 0 0.5rem; color: #0f172a; }
+    h4 { font-size: 0.98rem; margin: 1rem 0 0.4rem; font-weight: 600; color: #334155; }
+    ol.steps, ul.bullets { margin: 0.5rem 0 0; padding-left: 1.35rem; }
+    ol.steps li, ul.bullets li { margin: 0.4rem 0; }
+    ol.steps.tight li { margin: 0.25rem 0; }
+    .note { background: #eff6ff; border-left: 4px solid var(--accent); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+    .warn { background: #fffbeb; border-left: 4px solid var(--warn); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+    .ok { background: #ecfdf5; border-left: 4px solid var(--ok); padding: 0.75rem 1rem; margin: 1rem 0; border-radius: 0 8px 8px 0; font-size: 0.95rem; }
+    code, .path { font-family: ui-monospace, monospace; font-size: 0.88em; background: #f1f5f9; padding: 0.12em 0.35em; border-radius: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 0.75rem 0; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+    th { background: #f8fafc; }
+    footer { color: var(--muted); font-size: 0.85rem; text-align: center; margin-top: 2rem; }
+    a { color: var(--accent); }
+    .field-grid { display: grid; gap: 0.35rem 1rem; margin: 0.5rem 0; font-size: 0.92rem; }
+    @media (min-width: 520px) {
+      .field-grid { grid-template-columns: 9rem 1fr; }
+    }
+    .field-name { font-weight: 600; color: #475569; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Offline POS System — Complete beginner manual</h1>
+      <p class="sub">Deep, practical steps for someone who has never used a POS: <strong>dashboard</strong>, <strong>categories</strong>, <strong>creating and editing products</strong> (every main field), <strong>using the till (POS)</strong> with payments and Khata, then backups. Pair this with <a href="index.html">the feature guides index</a> for topic-specific pages.</p>
+    </header>
+
+    <nav class="toc" id="toc">
+      <h2>On this page</h2>
+      <ul>
+        <li><a href="#what">What this software does</a></li>
+        <li><a href="#before">Before you start</a></li>
+        <li><a href="#install">Installation and first launch</a></li>
+        <li><a href="#license">License (monthly activation)</a></li>
+        <li><a href="#setup">Business setup and Settings</a></li>
+        <li><a href="#dashboard">Main screen and menu</a></li>
+        <li><a href="#categories">Categories — full guide</a></li>
+        <li><a href="#products">Products — full guide</a>
+          <ul>
+            <li><a href="#products-open">Opening the product list</a></li>
+            <li><a href="#products-create">Creating a new product (step by step)</a></li>
+            <li><a href="#products-fields">What each field means</a></li>
+            <li><a href="#products-edit">Editing an existing product</a></li>
+            <li><a href="#products-extra">Bundles, ingredients, mobile shop fields</a></li>
+          </ul>
+        </li>
+        <li><a href="#pos">Using the POS (selling at the till)</a>
+          <ul>
+            <li><a href="#pos-cart">Building the cart</a></li>
+            <li><a href="#pos-pricing">Prices, discount, and tax</a></li>
+            <li><a href="#pos-customer">Selecting a customer (Khata)</a></li>
+            <li><a href="#pos-pay">Payment types and completing the sale</a></li>
+            <li><a href="#pos-after">After payment — new bill and printing</a></li>
+          </ul>
+        </li>
+        <li><a href="#customers">Customers and customer ledger</a></li>
+        <li><a href="#other">Purchases, stock, returns, reports</a></li>
+        <li><a href="#backup-local">System backup (on your computer)</a></li>
+        <li><a href="#backup-online">Online backup (free)</a></li>
+        <li><a href="#restore">Restoring from a backup</a></li>
+        <li><a href="#seller">Notes for the seller</a></li>
+        <li><a href="#faq">FAQ and troubleshooting</a></li>
+      </ul>
+    </nav>
+
+    <section id="what">
+      <h2>What this software does</h2>
+      <p>This is a <strong>Point of Sale (POS)</strong> system for retail-style businesses. It records <strong>sales</strong>, keeps <strong>inventory (stock)</strong>, manages <strong>customers</strong> (including <strong>credit / Khata</strong>), <strong>suppliers</strong>, <strong>expenses</strong>, <strong>banks</strong>, and can print or preview receipts. It is designed to run <strong>offline</strong> so the shop keeps working without internet.</p>
+      <p>Internet is optional — mainly for <strong>online backup</strong> (getting a download link) or any network features your seller enabled.</p>
+    </section>
+
+    <section id="before">
+      <h2>Before you start</h2>
+      <ul class="bullets">
+        <li>Use a reliable Windows PC for production use.</li>
+        <li>Set <strong>correct date, time, and time zone</strong> — monthly license activation depends on the calendar month.</li>
+        <li>Prepare: business name, address, phone, default <strong>currency</strong>, and approximate <strong>tax rate</strong> (if you charge tax).</li>
+        <li>Keep monthly <strong>license codes</strong> private and backed up (printed or in a password manager).</li>
+      </ul>
+    </section>
+
+    <section id="install">
+      <h2>Installation and first launch</h2>
+      <ol class="steps">
+        <li>Install from the file or instructions your seller provided (for example a Windows executable).</li>
+        <li>Launch the app. You may see a <strong>splash</strong> screen while the database prepares.</li>
+        <li>If <strong>Business setup</strong> appears, complete it (name, logo, tax, currency, etc.).</li>
+        <li>If <strong>License activation</strong> appears, enter the current month’s 16-character code.</li>
+        <li>If <strong>Login</strong> appears, sign in with the admin or staff user your seller configured.</li>
+        <li>You should reach the <strong>Dashboard</strong> (home) with shortcuts or a sidebar to other screens.</li>
+      </ol>
+      <div class="note"><strong>First day habit:</strong> After setup, go to <strong>Settings → Data Management → Create Backup</strong> once. That gives you a clean “starting point” file if anything goes wrong later.</div>
+    </section>
+
+    <section id="license">
+      <h2>License (monthly activation)</h2>
+      <p>Each <strong>calendar month</strong> has its own 16-character code (letters and numbers, no spaces). The code for <strong>April</strong> only works when the computer’s date is in April.</p>
+      <ol class="steps">
+        <li>Open <strong>Settings</strong> from the main menu or sidebar.</li>
+        <li>Open <strong>License Management</strong> (or follow any on-screen “activate license” prompt).</li>
+        <li>Type the code exactly, then confirm. You should see that the license is active until the end of that month.</li>
+        <li>On the first day of a new month, repeat with the <strong>new month’s</strong> code.</li>
+      </ol>
+      <div class="warn">Treat codes like passwords. Do not post them on social media or send in unsecured group chats.</div>
+    </section>
+
+    <section id="setup">
+      <h2>Business setup and Settings</h2>
+      <p>Most shop-wide options live under <strong>Settings</strong>:</p>
+      <ul class="bullets">
+        <li><strong>Business name, address, phone</strong> — usually printed on receipts.</li>
+        <li><strong>Tax rate</strong> — used when the POS calculates tax on the bill (if your workflow uses it).</li>
+        <li><strong>Currency</strong> — symbol and formatting on screens and reports.</li>
+        <li><strong>Dark mode</strong>, language, receipt options, printers — adjust as needed.</li>
+      </ul>
+      <p>After changing settings, look for <strong>Save</strong> (or equivalent) so values are written to the database.</p>
+    </section>
+
+    <section id="dashboard">
+      <h2>Main screen and menu</h2>
+      <p>The <strong>Dashboard</strong> is your home page. From here you typically open:</p>
+      <ul class="bullets">
+        <li><strong>POS</strong> — the selling screen (the “till”).</li>
+        <li><strong>Products</strong> — list, search, add, and edit items you sell.</li>
+        <li><strong>Categories</strong> — group products (required before or while adding products).</li>
+        <li><strong>Customers</strong> — people you sell to on credit (Khata) or for records.</li>
+        <li><strong>Sales</strong> — history of past bills.</li>
+        <li><strong>Reports</strong> — summaries and detailed reports.</li>
+        <li><strong>Settings</strong> — business profile, license, backups, and more.</li>
+      </ul>
+      <p>Exact layout depends on version (sidebar, tiles, or top menu), but the <strong>names</strong> above are what you should look for.</p>
+    </section>
+
+    <section id="categories">
+      <h2>Categories — full guide</h2>
+      <p>Every product must belong to a <strong>category</strong> (for example “Drinks”, “Groceries”, “Phone accessories”). Categories keep the POS organized and speed up searching.</p>
+
+      <h3>Opening Categories</h3>
+      <ol class="steps">
+        <li>From the Dashboard or menu, tap <strong>Categories</strong>.</li>
+        <li>You will see a list of existing category names (may be empty on a new install).</li>
+      </ol>
+
+      <h3>Adding a category</h3>
+      <ol class="steps">
+        <li>Tap <strong>Add Category</strong> (or similar).</li>
+        <li>Enter a <strong>clear name</strong> customers and staff will understand.</li>
+        <li>Save. Repeat until you have the main groups you need (you can add more later).</li>
+      </ol>
+
+      <h3>Renaming or cleaning up</h3>
+      <p>Use your app’s edit/delete actions on the category list if you made a typo. If the app prevents deleting a category that is still used by products, move those products to another category first (edit each product’s category).</p>
+
+      <div class="ok"><strong>Recommended order:</strong> Create categories <em>before</em> mass-adding products, so every new product can pick a category from the dropdown immediately.</div>
+    </section>
+
+    <section id="products">
+      <h2>Products — full guide</h2>
+      <p>Products are the items (or services) that appear on the POS. This section walks through the real screens: <strong>Basic Information</strong>, <strong>Inventory</strong>, <strong>Additional Information</strong> (pricing), and optional blocks for special business types.</p>
+
+      <h3 id="products-open">Opening the product list</h3>
+      <ol class="steps">
+        <li>From the menu, open <strong>Products</strong>.</li>
+        <li>Use the search box to find by <strong>name</strong> or <strong>barcode</strong>.</li>
+        <li>Tap a row to <strong>view or edit</strong> (depending on permissions).</li>
+        <li>Look for <strong>Add Product</strong> (or a “+” button) to create something new.</li>
+      </ol>
+
+      <h3 id="products-create">Creating a new product — step by step</h3>
+      <ol class="steps">
+        <li>Open <strong>Products</strong> → <strong>Add Product</strong>.</li>
+        <li>Work from top to bottom in the form so you do not miss required fields.</li>
+        <li>In <strong>Basic Information</strong>, fill <strong>Product Name</strong> (required) and <strong>Category</strong> (required):
+          <ul class="bullets">
+            <li>Choose an existing category from the <strong>dropdown</strong>, or pick <strong>Add New Category</strong>, type the new name, then continue.</li>
+          </ul>
+        </li>
+        <li><strong>Barcode (optional):</strong> type the code, or tap the <strong>camera / scanner</strong> icon if your device has a camera scanner — point at the barcode until it fills in.</li>
+        <li>In <strong>Inventory</strong>:
+          <ul class="bullets">
+            <li><strong>Current Stock</strong> — for a <strong>new</strong> item in retail mode, you can often enter <strong>0</strong> if you will receive stock later through <strong>Purchase / stock movements</strong>; the form may show a hint that ongoing stock is updated by purchases. If you already have physical stock on the shelf, enter the real quantity.</li>
+            <li><strong>Unit</strong> — choose how you count the item (for example <code>pcs</code>, <code>kg</code>, <code>box</code>). This appears on labels and reports.</li>
+            <li><strong>Reorder Level</strong> — when stock falls to this amount (or below), you know it is time to restock.</li>
+            <li><strong>Reorder Qty</strong> — how many you typically order when restocking.</li>
+          </ul>
+        </li>
+        <li>In <strong>Additional Information → Product Pricing</strong> (names may vary slightly):
+          <ul class="bullets">
+            <li><strong>Retail Cash</strong> — the normal selling price when the customer pays cash (required in standard retail layout).</li>
+            <li><strong>Cost Price</strong> — what you paid for the item (your cost). The screen usually shows <strong>profit</strong> and margin when price and cost are both filled.</li>
+            <li><strong>Retail Credit</strong> — price when selling on customer credit (Khata), if different from cash.</li>
+            <li><strong>Wholesale Cash / Wholesale Credit</strong> — lower tiers for bulk buyers, if you use wholesale mode on the POS.</li>
+            <li><strong>Market Price</strong> — optional reference (e.g. MRP on packaging).</li>
+          </ul>
+        </li>
+        <li>Scroll through any remaining sections: <strong>tax</strong>, <strong>discount</strong>, <strong>description</strong>, <strong>packing mode</strong>, etc. Fill only what your shop uses.</li>
+        <li>Tap <strong>Save</strong> (or “Add product”). Wait for the green success message.</li>
+        <li>Return to <strong>Products</strong> list and confirm the new row appears. Optionally open <strong>POS</strong> and search for the product to test a sale.</li>
+      </ol>
+
+      <h3 id="products-fields">What each main field means</h3>
+      <div class="field-grid">
+        <span class="field-name">Product Name</span><span>The label staff and you see on the POS. Use unique, clear names.</span>
+        <span class="field-name">Category</span><span>Groups the item for browsing and reports.</span>
+        <span class="field-name">Barcode</span><span>Lets you scan the item at the till instead of searching by name.</span>
+        <span class="field-name">Current Stock</span><span>How many units you have now. Updates when you sell and when you receive stock (depending on your workflows).</span>
+        <span class="field-name">Unit</span><span>pcs, kg, liter, etc.</span>
+        <span class="field-name">Reorder Level / Qty</span><span>Low-stock warning and typical order size.</span>
+        <span class="field-name">Retail Cash</span><span>Default customer price for cash sales.</span>
+        <span class="field-name">Cost Price</span><span>Your purchase cost — for profit calculation.</span>
+        <span class="field-name">Retail Credit</span><span>Price tier when posting to customer Khata.</span>
+        <span class="field-name">Wholesale fields</span><span>Used when POS is in wholesale mode for bulk buyers.</span>
+      </div>
+
+      <h3 id="products-edit">Editing an existing product</h3>
+      <ol class="steps">
+        <li>Open <strong>Products</strong>, find the item, open it for edit.</li>
+        <li>If you see <strong>Read-only mode</strong> with a switch for <strong>Editing mode</strong>, turn <strong>Editing mode</strong> on before changing fields (this protects accidental edits).</li>
+        <li>Change prices, description, barcode, or reorder levels as needed.</li>
+        <li><strong>Stock on hand:</strong> For existing products in retail setups, stock is often updated by <strong>purchases</strong> and <strong>sales</strong>, not by typing a random number. If you do a physical stock count, use proper <strong>stock adjustment</strong> or inventory tools your app provides so history stays correct.</li>
+        <li>Save and confirm the list shows updated values.</li>
+      </ol>
+
+      <h3 id="products-extra">Bundles, ingredients, mobile shop</h3>
+      <ul class="bullets">
+        <li><strong>Bundles / combo</strong> — if your version has a Bundles screen, you can sell a package of multiple products as one line. Configure bundles there, not only inside a single product.</li>
+        <li><strong>Restaurant / ingredients</strong> — for menu items made from raw materials, the product form may let you attach <strong>ingredients</strong> and quantities so costs and stock can follow recipes (when that mode is enabled).</li>
+        <li><strong>Mobile shop fields</strong> — brand, model, IMEI, warranty, etc., appear when your business profile is set up for phone shops; fill them for warranty and serial tracking.</li>
+        <li><strong>Bulk import</strong> — from Products, if your seller enabled Excel/CSV import, you can import many rows at once; column names must match the template your seller provides.</li>
+      </ul>
+      <div class="note">For more screenshots-style detail per module, open <a href="product-guide.html">product-guide.html</a> from the same <code>help_website</code> folder.</div>
+    </section>
+
+    <section id="pos">
+      <h2>Using the POS (selling at the till)</h2>
+      <p>The <strong>POS</strong> screen is where you build a bill, take payment, and finish the sale. Learn this screen well — it is used all day.</p>
+
+      <h3 id="pos-cart">Building the cart</h3>
+      <ol class="steps">
+        <li>Open <strong>POS</strong> from the menu or dashboard.</li>
+        <li><strong>Add items:</strong> Tap products from the grid/list, or use <strong>search</strong> by name, or <strong>scan a barcode</strong> with a scanner or camera (if available).</li>
+        <li><strong>Quantity:</strong> For each line, set how many units the customer buys. The line total updates from quantity × price.</li>
+        <li><strong>Bundles:</strong> If you sell configured bundles, add the bundle like a normal product; the app checks stock for all parts inside the bundle before allowing checkout.</li>
+        <li><strong>Remove mistakes:</strong> Remove a line or set quantity to zero before payment.</li>
+      </ol>
+      <div class="warn">If the app says <strong>out of stock</strong>, you cannot sell more than available quantity (for normal positive sales). Receive stock first (purchase / stock in) or fix the product stock after a physical count.</div>
+
+      <h3 id="pos-pricing">Prices, discount, and tax</h3>
+      <ul class="bullets">
+        <li>The POS usually picks <strong>Retail Cash</strong> or <strong>Retail Credit</strong> / <strong>Wholesale</strong> price depending on <strong>payment type</strong> and <strong>wholesale mode</strong> — watch the totals when you switch modes.</li>
+        <li><strong>Bill discount:</strong> If the screen has discount controls (percent or fixed), apply them before payment. Subtotal, tax, and total should match what you tell the customer.</li>
+        <li><strong>Tax:</strong> Uses the tax rate from settings (unless overridden per line). Verify the final total on screen before taking money.</li>
+      </ul>
+
+      <h3 id="pos-customer">Selecting a customer (Khata / credit)</h3>
+      <ol class="steps">
+        <li>Before or during the sale, choose a <strong>Customer</strong> from the customer picker if the sale goes on their account.</li>
+        <li>For <strong>credit (Khata)</strong> sales, the app records what they owe. Some shops still take a <strong>partial payment</strong> on credit — enter the amounts the screen asks for.</li>
+        <li>If your shop uses <strong>credit limits</strong>, the POS may block a sale when the new balance would exceed the limit.</li>
+      </ol>
+
+      <h3 id="pos-pay">Payment types and completing the sale</h3>
+      <p>Typical options (your exact labels may vary):</p>
+      <table>
+        <thead><tr><th>Type</th><th>When to use it</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Cash</strong></td><td>Customer pays full amount in cash. Enter tender if the app asks, so change can be shown.</td></tr>
+          <tr><td><strong>Card</strong></td><td>Full or agreed amount paid by card / bank POS terminal.</td></tr>
+          <tr><td><strong>Split</strong></td><td>Part cash and part card (or other split). Enter both parts so they add up correctly.</td></tr>
+          <tr><td><strong>Credit / Khata</strong></td><td>Sale on account: customer pays later. Often requires a selected customer. Partial payment on Khata may be supported.</td></tr>
+        </tbody>
+      </table>
+      <ol class="steps">
+        <li>Review the <strong>cart</strong> and <strong>total</strong>.</li>
+        <li>Select the correct <strong>payment type</strong> and fill any amount fields.</li>
+        <li>Tap <strong>Pay</strong> / <strong>Complete sale</strong> / <strong>Checkout</strong> (exact label varies).</li>
+        <li>Wait for the <strong>success</strong> message. Stock and customer balance update automatically for a completed sale.</li>
+      </ol>
+      <div class="note">Some versions <strong>lock</strong> the Pay button after a successful sale until you start a <strong>new bill</strong> — this prevents double-charging the same cart by mistake.</div>
+
+      <h3 id="pos-after">After payment — new bill and printing</h3>
+      <ol class="steps">
+        <li>Start a <strong>new sale</strong> / <strong>new bill</strong> when the next customer arrives (clear or reset the cart as your app shows).</li>
+        <li>If you use a receipt printer, use <strong>Print</strong> or receipt preview from the POS or sale details screen.</li>
+        <li>To review old bills, open <strong>Sales</strong> and tap a sale for line items and reprint if allowed.</li>
+      </ol>
+    </section>
+
+    <section id="customers">
+      <h2>Customers and customer ledger</h2>
+      <h3>Adding a customer</h3>
+      <ol class="steps">
+        <li>Open <strong>Customers</strong> → <strong>Add Customer</strong>.</li>
+        <li>Enter at least <strong>name</strong> and a <strong>phone number</strong> (phone helps you find them quickly).</li>
+        <li>Set <strong>credit limit</strong> if you use limits.</li>
+        <li>Save.</li>
+      </ol>
+      <h3>Ledger (Khata book)</h3>
+      <p>Open <strong>Customer ledger</strong> (or similar) from the customer row to see running balance, past sales, and payments. Record <strong>payments</strong> there when the customer settles part or all of their debt.</p>
+    </section>
+
+    <section id="other">
+      <h2>Purchases, stock, returns, reports</h2>
+      <ul class="bullets">
+        <li><strong>Purchase orders / purchase invoice</strong> — record stock coming in from suppliers; this increases inventory without typing fake numbers on the product form.</li>
+        <li><strong>Stock movements / inventory management</strong> — adjust stock when items break, spoil, or after a physical count, depending on what your app exposes.</li>
+        <li><strong>Returns &amp; refunds</strong> — process customer returns so stock and money stay accurate.</li>
+        <li><strong>Suppliers &amp; supplier ledger</strong> — track what you owe suppliers.</li>
+        <li><strong>Banks / expenses</strong> — optional accounting-style tracking.</li>
+        <li><strong>Reports</strong> — daily sales, item-wise sales, inventory, expenses — use these at closing time or for tax preparation.</li>
+      </ul>
+      <p>Each sub-area has a dedicated HTML file in <code>help_website/</code> (sales, supplier, bank guides) linked from <a href="index.html">index.html</a>.</p>
+    </section>
+
+    <section id="backup-local">
+      <h2>System backup (on your computer)</h2>
+      <p>Backups are <strong>JSON</strong> files containing your shop data. They are created in your <strong>Documents</strong> folder under <code>posbackup</code> on typical Windows installs.</p>
+      <h3>Manual backup</h3>
+      <ol class="steps">
+        <li><strong>Settings</strong> → <strong>Data Management</strong> → <strong>Create Backup</strong>.</li>
+        <li>Confirm success. Open File Explorer → <strong>Documents</strong> → <code>posbackup</code>.</li>
+        <li>Copy the newest <code>manual_pos_backup_*.json</code> file to USB or another PC.</li>
+      </ol>
+      <h3>Automatic backup (Windows)</h3>
+      <ol class="steps">
+        <li>In the same section, enable <strong>Automatic Windows Backup</strong>.</li>
+        <li>The app writes scheduled copies about every <strong>two hours</strong> while running, and may mirror to extra drives (<code>D:</code>, <code>E:</code>, etc.) when available.</li>
+      </ol>
+      <div class="ok">Keep <strong>multiple</strong> recent backups. Disks fail; ransomware exists; one copy is never enough.</div>
+    </section>
+
+    <section id="backup-online">
+      <h2>Online backup (free — no account)</h2>
+      <ol class="steps">
+        <li><strong>Settings</strong> → <strong>Data Management</strong> → <strong>Online backup (free)</strong>.</li>
+        <li>The app creates a fresh backup file, uploads it to a public host (<strong>transfer.sh</strong> or fallback <strong>0x0.st</strong>), then shows a <strong>download link</strong>.</li>
+        <li>Use <strong>Copy link</strong> and store the URL somewhere safe (email to yourself, password manager).</li>
+      </ol>
+      <div class="warn">The link is <strong>sensitive</strong> (anyone with it may download your data). Free hosts may <strong>delete</strong> files after some time — always keep local backups too.</div>
+    </section>
+
+    <section id="restore">
+      <h2>Restoring from a backup</h2>
+      <ol class="steps">
+        <li>Copy the <code>.json</code> backup into <code>Documents\posbackup</code> if it is not already there.</li>
+        <li><strong>Settings</strong> → <strong>Restore Data</strong> → pick the file → confirm.</li>
+        <li>Restoring <strong>replaces</strong> current data. Only restore when you intend to roll back.</li>
+      </ol>
+    </section>
+
+    <section id="seller">
+      <h2>Notes for the person selling this product</h2>
+      <ul class="bullets">
+        <li>Walk through <strong>Add one product</strong> and <strong>one test sale</strong> on handover day while the buyer repeats the steps.</li>
+        <li>Explain <strong>stock</strong>: new shops often start at 0 and use <strong>purchases</strong> to increase stock — avoids inconsistent numbers.</li>
+        <li>Leave a printed shortlist: Dashboard → Categories → Products → POS → End-of-day backup.</li>
+        <li>Monthly codes: see <code>documentation/LICENSE_KEYS_2028_2030.txt</code> for 2028–2030 (May).</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>FAQ and troubleshooting</h2>
+      <table>
+        <thead><tr><th>Problem</th><th>What to try</th></tr></thead>
+        <tbody>
+          <tr><td>Cannot save product — “category required”</td><td>Create the category first, or use <strong>Add New Category</strong> in the product form.</td></tr>
+          <tr><td>Product not on POS</td><td>Check product is <strong>active</strong>, correct category filter, and search spelling.</td></tr>
+          <tr><td>Out of stock at checkout</td><td>Reduce quantity or receive stock via purchase / adjustment.</td></tr>
+          <tr><td>Wrong price on POS</td><td>Check Retail Cash / Credit / wholesale toggle; edit product prices.</td></tr>
+          <tr><td>Invalid license</td><td>PC date must match the month of the code; 16 characters, no spaces.</td></tr>
+          <tr><td>Online backup failed</td><td>Internet / firewall; fall back to manual backup and copy file to Google Drive or email.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      <p>Offline POS — beginner manual (expanded). Related: <a href="index.html">help index</a>, <a href="product-guide.html">products</a>, <a href="sales-guide.html">sales</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>

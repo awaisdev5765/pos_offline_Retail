@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Management Guide | سپلائر کے انتظام کی گائیڈ</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+        
+        .guide-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .guide-hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .step-visual {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .step-visual.dark-theme {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .visual-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .visual-header {
+            border-color: #334155;
+        }
+        
+        .visual-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .visual-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .visual-title {
+            color: #e2e8f0;
+        }
+        
+        .form-preview {
+            background: #f8fafc;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            border: 2px dashed #10b981;
+        }
+        
+        .dark-theme .form-preview {
+            background: #0f172a;
+            border-color: #10b981;
+        }
+        
+        .form-field {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+        
+        .dark-theme .form-label {
+            color: #e2e8f0;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #10b981;
+        }
+        
+        .dark-theme .form-input {
+            background: #1e293b;
+            border-color: #334155;
+            color: #e2e8f0;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #64748b;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .dark-theme .btn-secondary {
+            background: #1e293b;
+            color: #94a3b8;
+            border-color: #334155;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-left: 4px solid #10b981;
+        }
+        
+        .dark-theme .tips-section {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            border-left-color: #10b981;
+        }
+        
+        .tips-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tips-icon {
+            color: #10b981;
+            font-size: 1.25rem;
+        }
+        
+        .tips-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .tips-title {
+            color: #e2e8f0;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li::before {
+            content: "💡";
+            font-size: 1.25rem;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-button:hover {
+            color: #059669;
+        }
+        
+        .dark-theme .back-button {
+            color: #34d399;
+        }
+        
+        .dark-theme .back-button:hover {
+            color: #10b981;
+        }
+        
+        .supplier-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark-theme .supplier-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+        
+        .supplier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .supplier-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .dark-theme .supplier-name {
+            color: #e2e8f0;
+        }
+        
+        .supplier-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background: #dcfce7;
+            color: #166534;
+        }
+        
+        .status-inactive {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+        
+        .supplier-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64748b;
+        }
+        
+        .dark-theme .detail-item {
+            color: #94a3b8;
+        }
+        
+        .detail-icon {
+            color: #10b981;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cash-register"></i>
+                <span class="en">POS System Guide</span>
+                <span class="ur" style="display: none;">پوس سسٹم گائیڈ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">
+                    <span class="en">Home</span>
+                    <span class="ur" style="display: none;">ہوم</span>
+                </a>
+                <a href="index.html#guides" class="nav-link">
+                    <span class="en">Guides</span>
+                    <span class="ur" style="display: none;">گائیڈز</span>
+                </a>
+            </div>
+            <div class="nav-controls">
+                <button class="lang-toggle" onclick="toggleLanguage()">
+                    <i class="fas fa-language"></i>
+                    <span class="en">اردو</span>
+                    <span class="ur" style="display: none;">English</span>
+                </button>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Guide Hero -->
+    <section class="guide-hero">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span class="en">Back to Main Guide</span>
+                <span class="ur" style="display: none;">مین گائیڈ پر واپس</span>
+            </a>
+            <h1>
+                <span class="en">Supplier Management Guide</span>
+                <span class="ur" style="display: none;">سپلائر کے انتظام کی گائیڈ</span>
+            </h1>
+            <p>
+                <span class="en">Learn how to add and manage suppliers for your business</span>
+                <span class="ur" style="display: none;">اپنے کاروبار کے لیے سپلائرز شامل اور انتظام کرنا سیکھیں</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <section class="guides">
+        <div class="container">
+            <!-- Adding Suppliers -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Adding New Suppliers</span>
+                            <span class="ur" style="display: none;">نئے سپلائرز شامل کرنا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Step-by-step guide to add suppliers to your system</span>
+                            <span class="ur" style="display: none;">اپنے سسٹم میں سپلائرز شامل کرنے کا قدم بہ قدم گائیڈ</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 1: Navigate to Suppliers</span>
+                                <span class="ur" style="display: none;">قدم 1: سپلائرز میں جائیں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">From the main dashboard, click on the "Suppliers" section. This will take you to the supplier management area.</span>
+                            <span class="ur" style="display: none;">مین ڈیش بورڈ سے، "سپلائرز" سیکشن پر کلک کریں۔ یہ آپ کو سپلائر کے انتظام کے علاقے میں لے جائے گا۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 2: Click Add Supplier</span>
+                                <span class="ur" style="display: none;">قدم 2: سپلائر شامل کریں پر کلک کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">Look for the "Add Supplier" or "+" button, usually located at the top of the suppliers list.</span>
+                            <span class="ur" style="display: none;">"سپلائر شامل کریں" یا "+" بٹن تلاش کریں، جو عام طور پر سپلائرز کی فہرست کے اوپر ہوتا ہے۔</span>
+                        </p>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 3: Fill Supplier Information</span>
+                                <span class="ur" style="display: none;">قدم 3: سپلائر کی معلومات بھریں</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-preview">
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Company Name *</span>
+                                    <span class="ur" style="display: none;">کمپنی کا نام *</span>
+                                </label>
+                                <input type="text" class="form-input" placeholder="Enter company name" placeholder-ur="کمپنی کا نام درج کریں">
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Contact Person *</span>
+                                        <span class="ur" style="display: none;">رابطہ شخص *</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Contact person name" placeholder-ur="رابطہ شخص کا نام">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Phone Number *</span>
+                                        <span class="ur" style="display: none;">فون نمبر *</span>
+                                    </label>
+                                    <input type="tel" class="form-input" placeholder="Phone number" placeholder-ur="فون نمبر">
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Email Address</span>
+                                    <span class="ur" style="display: none;">ای میل ایڈریس</span>
+                                </label>
+                                <input type="email" class="form-input" placeholder="Email address (optional)" placeholder-ur="ای میل ایڈریس (اختیاری)">
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Address</span>
+                                    <span class="ur" style="display: none;">پتہ</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Complete address" placeholder-ur="مکمل پتہ"></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">City</span>
+                                        <span class="ur" style="display: none;">شہر</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="City" placeholder-ur="شہر">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Country</span>
+                                        <span class="ur" style="display: none;">ملک</span>
+                                    </label>
+                                    <input type="text" class="form-input" placeholder="Country" placeholder-ur="ملک">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Credit Limit</span>
+                                        <span class="ur" style="display: none;">کریڈٹ لیمٹ</span>
+                                    </label>
+                                    <input type="number" class="form-input" placeholder="0.00" step="0.01">
+                                </div>
+                                <div class="form-field">
+                                    <label class="form-label">
+                                        <span class="en">Payment Terms</span>
+                                        <span class="ur" style="display: none;">ادائیگی کی شرائط</span>
+                                    </label>
+                                    <select class="form-input">
+                                        <option>30 days</option>
+                                        <option>15 days</option>
+                                        <option>7 days</option>
+                                        <option>Cash on delivery</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-field">
+                                <label class="form-label">
+                                    <span class="en">Notes</span>
+                                    <span class="ur" style="display: none;">نوٹس</span>
+                                </label>
+                                <textarea class="form-input" rows="3" placeholder="Additional notes (optional)" placeholder-ur="اضافی نوٹس (اختیاری)"></textarea>
+                            </div>
+                            
+                            <div class="form-buttons">
+                                <button class="btn btn-secondary">
+                                    <span class="en">Cancel</span>
+                                    <span class="ur" style="display: none;">منسوخ</span>
+                                </button>
+                                <button class="btn btn-primary">
+                                    <i class="fas fa-save"></i>
+                                    <span class="en">Save Supplier</span>
+                                    <span class="ur" style="display: none;">سپلائر محفوظ کریں</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Step 4: Save and Confirm</span>
+                                <span class="ur" style="display: none;">قدم 4: محفوظ اور تصدیق کریں</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">After filling all required fields, click "Save Supplier" to add it to your system. You'll see a confirmation message.</span>
+                            <span class="ur" style="display: none;">تمام ضروری فیلڈز بھرنے کے بعد، اسے اپنے سسٹم میں شامل کرنے کے لیے "سپلائر محفوظ کریں" پر کلک کریں۔ آپ کو تصدیقی پیغام نظر آئے گا۔</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Managing Suppliers -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Managing Existing Suppliers</span>
+                            <span class="ur" style="display: none;">موجودہ سپلائرز کا انتظام</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to edit, update, and manage supplier information</span>
+                            <span class="ur" style="display: none;">سپلائر کی معلومات میں ترمیم، اپڈیٹ اور انتظام کرنا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-list"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Viewing Supplier List</span>
+                                <span class="ur" style="display: none;">سپلائر کی فہرست دیکھنا</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">The supplier list shows all your suppliers with their key information:</span>
+                            <span class="ur" style="display: none;">سپلائر کی فہرست آپ کے تمام سپلائرز کو ان کی اہم معلومات کے ساتھ دکھاتی ہے:</span>
+                        </p>
+                        
+                        <div class="supplier-card">
+                            <div class="supplier-header">
+                                <div class="supplier-name">ABC Electronics Ltd.</div>
+                                <div class="supplier-status status-active">
+                                    <span class="en">Active</span>
+                                    <span class="ur" style="display: none;">فعال</span>
+                                </div>
+                            </div>
+                            <div class="supplier-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-user detail-icon"></i>
+                                    <span>John Smith</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-phone detail-icon"></i>
+                                    <span>+1 234-567-8900</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-envelope detail-icon"></i>
+                                    <span>john@abcelectronics.com</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt detail-icon"></i>
+                                    <span>New York, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Editing Supplier Information</span>
+                                <span class="ur" style="display: none;">سپلائر کی معلومات میں ترمیم</span>
+                            </div>
+                        </div>
+                        <p>
+                            <span class="en">To edit a supplier, click on the supplier name or the edit button. You can update:</span>
+                            <span class="ur" style="display: none;">سپلائر میں ترمیم کرنے کے لیے، سپلائر کے نام یا ترمیم بٹن پر کلک کریں۔ آپ اپڈیٹ کر سکتے ہیں:</span>
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="en">Contact information (phone, email, address)</span>
+                                <span class="ur" style="display: none;">رابطہ کی معلومات (فون، ای میل، پتہ)</span>
+                            </li>
+                            <li>
+                                <span class="en">Credit limits and payment terms</span>
+                                <span class="ur" style="display: none;">کریڈٹ لیمٹس اور ادائیگی کی شرائط</span>
+                            </li>
+                            <li>
+                                <span class="en">Supplier status (active/inactive)</span>
+                                <span class="ur" style="display: none;">سپلائر کی حالت (فعال/غیر فعال)</span>
+                            </li>
+                            <li>
+                                <span class="en">Additional notes and comments</span>
+                                <span class="ur" style="display: none;">اضافی نوٹس اور تبصرے</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Orders -->
+            <div class="guide-section">
+                <div class="guide-header">
+                    <div class="guide-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="guide-title">
+                        <h3>
+                            <span class="en">Creating Purchase Orders</span>
+                            <span class="ur" style="display: none;">خریداری کے آرڈرز بنانا</span>
+                        </h3>
+                        <p>
+                            <span class="en">Learn how to create purchase orders with your suppliers</span>
+                            <span class="ur" style="display: none;">اپنے سپلائرز کے ساتھ خریداری کے آرڈرز بنانا سیکھیں</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="guide-content">
+                    <div class="step-visual">
+                        <div class="visual-header">
+                            <div class="visual-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <div class="visual-title">
+                                <span class="en">Purchase Order Process</span>
+                                <span class="ur" style="display: none;">خریداری کے آرڈر کا عمل</span>
+                            </div>
+                        </div>
+                        <ol>
+                            <li>
+                                <span class="en">Go to Purchase Orders section</span>
+                                <span class="ur" style="display: none;">خریداری کے آرڈرز کے سیکشن میں جائیں</span>
+                            </li>
+                            <li>
+                                <span class="en">Click "New Purchase Order"</span>
+                                <span class="ur" style="display: none;">"نیا خریداری آرڈر" پر کلک کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Select the supplier from the dropdown</span>
+                                <span class="ur" style="display: none;">ڈراپ ڈاؤن سے سپلائر منتخب کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Add products and quantities needed</span>
+                                <span class="ur" style="display: none;">ضروری مصنوعات اور مقدار شامل کریں</span>
+                            </li>
+                            <li>
+                                <span class="en">Review and submit the order</span>
+                                <span class="ur" style="display: none;">آرڈر کا جائزہ لیں اور جمع کریں</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tips and Best Practices -->
+            <div class="tips-section">
+                <div class="tips-header">
+                    <i class="fas fa-lightbulb tips-icon"></i>
+                    <div class="tips-title">
+                        <span class="en">Tips & Best Practices</span>
+                        <span class="ur" style="display: none;">نصائح اور بہترین طریقے</span>
+                    </div>
+                </div>
+                <ul class="tips-list">
+                    <li>
+                        <span class="en">Keep supplier contact information up to date</span>
+                        <span class="ur" style="display: none;">سپلائر کی رابطہ کی معلومات کو اپ ٹو ڈیٹ رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Set appropriate credit limits for each supplier</span>
+                        <span class="ur" style="display: none;">ہر سپلائر کے لیے مناسب کریڈٹ لیمٹس سیٹ کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Use clear payment terms to avoid confusion</span>
+                        <span class="ur" style="display: none;">الجھن سے بچنے کے لیے واضح ادائیگی کی شرائط استعمال کریں</span>
+                    </li>
+                    <li>
+                        <span class="en">Regularly review supplier performance</span>
+                        <span class="ur" style="display: none;">سپلائر کی کارکردگی کا باقاعدگی سے جائزہ لیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Maintain good relationships with reliable suppliers</span>
+                                <span class="ur" style="display: none;">قابل اعتماد سپلائرز کے ساتھ اچھے تعلقات برقرار رکھیں</span>
+                    </li>
+                    <li>
+                        <span class="en">Keep track of purchase history for better planning</span>
+                        <span class="ur" style="display: none;">بہتر منصوبہ بندی کے لیے خریداری کی تاریخ کا ٹریک رکھیں</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>
+                        <span class="en">Supplier Management Guide</span>
+                        <span class="ur" style="display: none;">سپلائر کے انتظام کی گائیڈ</span>
+                    </h3>
+                    <p>
+                        <span class="en">Master supplier management in your POS system</span>
+                        <span class="ur" style="display: none;">اپنے پوس سسٹم میں سپلائر کے انتظام میں مہارت حاصل کریں</span>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>
+                        <span class="en">Quick Links</span>
+                        <span class="ur" style="display: none;">فوری لنکس</span>
+                    </h4>
+                    <ul>
+                        <li><a href="index.html">
+                            <span class="en">Main Guide</span>
+                            <span class="ur" style="display: none;">مین گائیڈ</span>
+                        </a></li>
+                        <li><a href="product-guide.html">
+                            <span class="en">Product Guide</span>
+                            <span class="ur" style="display: none;">مصنوعات گائیڈ</span>
+                        </a></li>
+                        <li><a href="bank-guide.html">
+                            <span class="en">Banking Guide</span>
+                            <span class="ur" style="display: none;">بینکنگ گائیڈ</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Offline POS System. 
+                    <span class="en">All rights reserved.</span>
+                    <span class="ur" style="display: none;">تمام حقوق محفوظ ہیں۔</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

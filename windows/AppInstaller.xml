@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppInstaller
+    xmlns="http://schemas.microsoft.com/appx/appinstaller/2018"
+    Version="1.0.0.0"
+    Uri="https://your-update-server.com/offline_pos_system/AppInstaller.xml"
+    >
+    
+    <MainPackage
+        Name="com.airtechsolutions.offline_pos_system"
+        Version="1.0.0.0"
+        Publisher="CN=AirTech Solutions"
+        Uri="https://your-update-server.com/offline_pos_system/offline_pos_system_1.0.0.0_x64.msix"
+        ProcessorArchitecture="x64"
+        />
+
+    <UpdateSettings>
+        <OnLaunch
+            HoursBetweenUpdateChecks="0"
+            ShowPrompt="true"
+            UpdateBlocksActivation="false"
+            />
+        <AutomaticBackgroundTask
+            HoursBetweenUpdateChecks="24"
+            />
+    </UpdateSettings>
+
+    <Dependencies>
+        <Package Name="Microsoft.VCLibs.140.00.UWPDesktop" 
+                 Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+                 Version="14.0.30704.0"
+                 Uri="https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" />
+    </Dependencies>
+</AppInstaller>
+

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ریٹیل پوس سسٹم - استعمال کی مکمل گائیڈ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jameel Noori Nastaleeq', 'Noto Nastaleeq Urdu', 'Urdu Typesetting', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 2;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            padding: 30px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .toc h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .toc ul {
+            list-style: none;
+            columns: 2;
+            column-gap: 40px;
+        }
+
+        .toc li {
+            margin: 10px 0;
+            padding: 8px 15px;
+            background: white;
+            border-radius: 8px;
+            border-right: 4px solid #667eea;
+        }
+
+        .toc a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .toc a:hover {
+            color: #667eea;
+            padding-right: 10px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #fafbfc;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s;
+        }
+
+        .section:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: inline-block;
+        }
+
+        .section h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            color: #495057;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .step-box {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-right: 5px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .tip-box::before {
+            content: "💡 اہم نوٹ: ";
+            font-weight: bold;
+            color: #856404;
+            font-size: 1.1em;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border: 2px solid #dc3545;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .warning-box::before {
+            content: "⚠️ احتیاط: ";
+            font-weight: bold;
+            color: #721c24;
+            font-size: 1.1em;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card .icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        ul.steps-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.steps-list li {
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 8px;
+            border-right: 4px solid #667eea;
+            position: relative;
+            padding-right: 40px;
+        }
+
+        ul.steps-list li::before {
+            content: "✓";
+            position: absolute;
+            right: 15px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: right;
+            font-size: 1.1em;
+        }
+
+        table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toc ul {
+                columns: 1;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏪 ریٹیل پوس سسٹم</h1>
+            <p>دکانداروں کے لیے استعمال کی مکمل اور آسان گائیڈ</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">ورژن 1.0 - 2026</p>
+        </div>
+
+        <div class="toc">
+            <h2>📋 فہرست</h2>
+            <ul>
+                <li><a href="#section1">1. سسٹم شروع کرنا</a></li>
+                <li><a href="#section2">2. بزنس کی سیٹنگز</a></li>
+                <li><a href="#section3">3. سپلائر شامل کرنا</a></li>
+                <li><a href="#section4">4. پروڈکٹس شامل کرنا</a></li>
+                <li><a href="#section5">5. پرچیز انوائس بنانا</a></li>
+                <li><a href="#section6">6. سیلز (بلنگ)</a></li>
+                <li><a href="#section7">7. کسٹمر مینجمنٹ</a></li>
+                <li><a href="#section8">8. بینکنگ سسٹم</a></li>
+                <li><a href="#section9">9. اخراجات</a></li>
+                <li><a href="#section10">10. رپورٹس</a></li>
+                <li><a href="#section11">11. ایمپلائیر مینجمنٹ</a></li>
+                <li><a href="#section12">12. رسیٹ سیٹنگز</a></li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <!-- Section 1: Getting Started -->
+            <div class="section" id="section1">
+                <h2>1️⃣ سسٹم شروع کرنا</h2>
+                
+                <h3>لاگ ان کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> ایپلی کیشن کھولیں</p>
+                    <p><span class="step-number">2</span> اپنا یوزر نیم اور پاس ورڈ ڈالیں</p>
+                    <p><span class="step-number">3</span> "لاگ ان" بٹن دبائیں</p>
+                </div>
+
+                <div class="tip-box">
+                    پہلی بار استعمال کرتے وقت آپ کو بزنس سیٹ اپ کرنا ہوگا جس میں آپ کی دکان کی معلومات، کرنسی، اور ایڈمن اکاؤنٹ شامل ہے۔
+                </div>
+
+                <h3>ڈیش بورڈ</h3>
+                <p>لاگ ان کرنے کے بعد آپ ڈیش بورڈ پر آئیں گے جہاں آپ کو نظر آئے گا:</p>
+                <ul class="steps-list">
+                    <li>آج کی کل فروخت</li>
+                    <li>آج کا منافع</li>
+                    <li>کل آرڈرز کی تعداد</li>
+                    <li>کم اسٹاک والی پروڈکٹس</li>
+                    <li>حالیہ لین دین</li>
+                </ul>
+            </div>
+
+            <!-- Section 2: Business Settings -->
+            <div class="section" id="section2">
+                <h2>2️⃣ بزنس کی سیٹنگز</h2>
+                
+                <h3>بزنس کی معلومات سیٹ کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "سیٹنگز" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "بزنس انفارمیشن" سیکشن میں جائیں</p>
+                    <p><span class="step-number">3</span> درج ذیل معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                        <th>ضروری؟</th>
+                    </tr>
+                    <tr>
+                        <td>بزنس کا نام</td>
+                        <td>آپ کی دکان یا کاروبار کا نام</td>
+                        <td>✅ جی ہاں</td>
+                    </tr>
+                    <tr>
+                        <td>پتہ</td>
+                        <td>دکان کا مکمل پتہ</td>
+                        <td>✅ جی ہاں</td>
+                    </tr>
+                    <tr>
+                        <td>فون نمبر</td>
+                        <td>رابطہ نمبر</td>
+                        <td>✅ جی ہاں</td>
+                    </tr>
+                    <tr>
+                        <td>کرنسی</td>
+                        <td>مقامی کرنسی منتخب کریں (روپے، ڈالر وغیرہ)</td>
+                        <td>✅ جی ہاں</td>
+                    </tr>
+                    <tr>
+                        <td>ٹیکس ریٹ</td>
+                        <td>اگر ٹیکس لاگو ہے تو فیصد ڈالیں</td>
+                        <td>❌ اختیاری</td>
+                    </tr>
+                </table>
+
+                <div class="tip-box">
+                    یہ معلومات آپ کی رسید (رسید) پر نظر آئیں گی، اس لیے درست معلومات بھریں۔
+                </div>
+
+                <h3>زبان کی ترتیب</h3>
+                <p>آپ ایپ کی زبان تبدیل کر سکتے ہیں:</p>
+                <ul class="steps-list">
+                    <li>انگریزی (English)</li>
+                    <li>اردو (اردو)</li>
+                    <li>فرانسیسی (Français)</li>
+                </ul>
+
+                <div class="step-box">
+                    <p><strong>طریقہ:</strong> سیٹنگز > زبان > اپنی پسند کی زبان منتخب کریں</p>
+                </div>
+            </div>
+
+            <!-- Section 3: Supplier Management -->
+            <div class="section" id="section3">
+                <h2>3️⃣ سپلائر شامل کرنا</h2>
+                
+                <h3>نیا سپلائر ایڈ کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "سپلائیرز" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نیا سپلائر" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> درج ذیل معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                    </tr>
+                    <tr>
+                        <td>سپلائر کا نام *</td>
+                        <td>سپلائر یا کمپنی کا نام</td>
+                    </tr>
+                    <tr>
+                        <td>فون نمبر *</td>
+                        <td>رابطہ نمبر</td>
+                    </tr>
+                    <tr>
+                        <td>پتہ</td>
+                        <td>سپلائر کا پتہ</td>
+                    </tr>
+                    <tr>
+                        <td>ای میل</td>
+                        <td>ای میل ایڈریس</td>
+                    </tr>
+                    <tr>
+                        <td>شروع کا بیلنس</td>
+                        <td>اگر پہلے سے کوئی لین دین ہے تو رقم ڈالیں</td>
+                    </tr>
+                </table>
+
+                <div class="step-box">
+                    <p><span class="step-number">4</span> "محفوظ کریں" بٹن دبائیں</p>
+                </div>
+
+                <h3>سپلائر کی تفصیلات دیکھنا</h3>
+                <p>سپلائر کی لسٹ سے کسی بھی سپلائر پر کلک کریں تاکہ دیکھ سکیں:</p>
+                <ul class="steps-list">
+                    <li>کل خریداری</li>
+                    <li>کل ادائیگی</li>
+                    <td>بقایا رقم (جتنی ابھی دینی ہے)</td>
+                    <li>تمام انوائسز کی فہرست</li>
+                    <li>ادائیگیوں کی تاریخ</li>
+                </ul>
+
+                <div class="tip-box">
+                    سپلائر کا فون نمبر لازمی ڈالیں تاکہ بعد میں رابطہ کر سکیں اور رسیٹ پر نظر آئے۔
+                </div>
+            </div>
+
+            <!-- Section 4: Product Management -->
+            <div class="section" id="section4">
+                <h2>4️⃣ پروڈکٹس شامل کرنا</h2>
+                
+                <h3>طریقہ 1: ایک ایک کر کے پروڈکٹ شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "پروڈکٹس" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نئی پروڈکٹ" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> پروڈکٹ کی معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                        <th>ضروری؟</th>
+                    </tr>
+                    <tr>
+                        <td>پروڈکٹ کا نام *</td>
+                        <td>آئٹم کا نام</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>بارکوڈ</td>
+                        <td>بارکوڈ نمبر (اگر ہے تو)</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>قیمت خرید *</td>
+                        <td>آپ نے کتنے میں خریدا</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>قیمت فروخت *</td>
+                        <td>آپ کتنے میں بیچیں گے</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>اسٹاک *</td>
+                        <td>کتنی تعداد ہے</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>کم از کم اسٹاک</td>
+                        <td>جب اس سے کم ہو تو الرٹ ملے</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>سپلائر</td>
+                        <td>کس سپلائر سے خریدا</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>کیٹیگری</td>
+                        <td>پروڈکٹ کی قسم</td>
+                        <td>❌</td>
+                    </tr>
+                </table>
+
+                <h3>طریقہ 2: بلک امپورٹ (ایک ساتھ بہت ساری پروڈکٹس)</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> پروڈکٹس پیج پر "بلک امپورٹ" بٹن دبائیں</p>
+                    <p><span class="step-number">2</span> سیمپل فائل ڈاؤن لوڈ کریں</p>
+                    <p><span class="step-number">3</span> ایکسل فائل میں اپنی پروڈکٹس کی معلومات بھریں</p>
+                    <p><span class="step-number">4</span> فائل اپ لوڈ کریں</p>
+                    <p><span class="step-number">5</span> "امپورٹ" بٹن دبائیں</p>
+                </div>
+
+                <div class="warning-box">
+                    بلک امپورٹ کرتے وقت بارکوڈ نمبر یونیک ہونا چاہیے۔ ایک ہی بارکوڈ دو پروڈکٹس کا نہیں ہو سکتا۔
+                </div>
+
+                <div class="tip-box">
+                    اگر آپ کے پاس بارکوڈ سکینر ہے تو پروڈکٹ شامل کرتے وقت بارکوڈ سکین کریں، خودکار طور پر نمبر آ جائے گا۔
+                </div>
+            </div>
+
+            <!-- Section 5: Purchase Invoice -->
+            <div class="section" id="section5">
+                <h2>5️⃣ پرچیز انوائس بنانا</h2>
+                
+                <h3>خریداری کا انوائس بنانا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "پرچیز انوائس" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نئی پرچیز" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> سپلائر منتخب کریں</p>
+                    <p><span class="step-number">4</span> انوائس نمبر ڈالیں (اگر سپلائر نے دیا ہے)</p>
+                    <p><span class="step-number">5</span> تاریخ منتخب کریں</p>
+                </div>
+
+                <h3>آئٹمز شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">6</span> "آئٹم شامل کریں" بٹن دبائیں</p>
+                    <p><span class="step-number">7</span> پروڈکٹ منتخب کریں یا نئی پروڈکٹ شامل کریں</p>
+                    <p><span class="step-number">8</span> مقدار (کتنی پیسز/کتنے ڈبے)</p>
+                    <p><span class="step-number">9</span> فی پیس قیمت</p>
+                    <p><span class="step-number">10</span> اگر ڈسکاؤنٹ ہے تو ڈالیں</p>
+                </div>
+
+                <h3>ادائیگی</h3>
+                <div class="step-box">
+                    <p><span class="step-number">11</span> کل رقم نظر آئے گی</p>
+                    <p><span class="step-number">12</span> کتنی ادائیگی کر رہے ہیں؟ (مکمل یا جزوی)</p>
+                    <p><span class="step-number">13</span> ادائیگی کا طریقہ:</p>
+                    <ul>
+                        <li>نقد (کیش)</li>
+                        <li>بینک ٹرانسفر</li>
+                        <li>ادھار (بعد میں دیں گے)</li>
+                    </ul>
+                    <p><span class="step-number">14</span> "محفوظ کریں" بٹن دبائیں</p>
+                </div>
+
+                <div class="tip-box">
+                    پرچیز انوائس بنانے سے پروڈکٹ کا اسٹاک خودکار طور پر بڑھ جاتا ہے۔ الگ سے اسٹاک ایڈ کرنے کی ضرورت نہیں۔
+                </div>
+
+                <div class="warning-box">
+                    اگر جزوی ادائیگی کر رہے ہیں تو بقایا رقم سپلائر کے اکاؤنٹ میں شامل ہو جائے گی جو بعد میں ادا کر سکتے ہیں۔
+                </div>
+            </div>
+
+            <!-- Section 6: POS / Sales -->
+            <div class="section" id="section6">
+                <h2>6️⃣ سیلز (بلنگ)</h2>
+                
+                <h3>نئی سیل بنانا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "پوس" یا "نیو سیل" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> پروڈکٹ شامل کریں (تین طریقے):</p>
+                    <ul>
+                        <li><strong>بارکوڈ سکین کریں:</strong> بارکوڈ سکینر سے سکین کریں</li>
+                        <li><strong>تلاش کریں:</strong> پروڈکٹ کا نام لکھیں</li>
+                        <li><strong>فہرست سے منتخب کریں:</strong> پروڈکٹ لسٹ سے کلک کریں</li>
+                    </ul>
+                </div>
+
+                <h3>بلنگ کے دوران</h3>
+                <div class="step-box">
+                    <p><strong>مقدار تبدیل کرنا:</strong></p>
+                    <p>پروڈکٹ کی مقدار (Quantity) تبدیل کر سکتے ہیں</p>
+                    <br>
+                    <p><strong>قیمت تبدیل کرنا:</strong></p>
+                    <p>اگر ڈسکاؤنٹ دینا ہے تو فی پیس قیمت تبدیل کر سکتے ہیں</p>
+                    <br>
+                    <p><strong>ڈسکاؤنٹ:</strong></p>
+                    <p>پوری بل پر ڈسکاؤنٹ دے سکتے ہیں (رقم یا فیصد)</p>
+                </div>
+
+                <h3>کسٹمر شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">3</span> "کسٹمر" فیلڈ میں:</p>
+                    <ul>
+                        <li>موجودہ کسٹمر منتخب کریں</li>
+                        <li>یا نیا کسٹمر شامل کریں</li>
+                        <li>یا "واک ان کسٹمر" (بغیر نام کے)</li>
+                    </ul>
+                </div>
+
+                <h3>ادائیگی وصول کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">4</span> کل رقم نظر آئے گی</p>
+                    <p><span class="step-number">5</span> کسٹمر نے کتنی رقم دی؟</p>
+                    <p><span class="step-number">6</span> ادائیگی کا طریقہ منتخب کریں:</p>
+                    <ul>
+                        <li>💵 نقد (کیش)</li>
+                        <li>💳 کارڈ</li>
+                        <li>📱 موبائل بینکنگ</li>
+                        <li>🏦 بینک ٹرانسفر</li>
+                        <li>📝 ادھار (کریڈٹ)</li>
+                    </ul>
+                    <p><span class="step-number">7</span> "مکمل سیل" بٹن دبائیں</p>
+                </div>
+
+                <div class="tip-box">
+                    سیل مکمل ہونے کے بعد رسید (رسید) پرنٹ ہوگی۔ آپ ایس ایم ایس بھی بھیج سکتے ہیں اگر فیچر فعال ہے۔
+                </div>
+
+                <div class="warning-box">
+                    اگر کسٹمر نے کم رقم دی ہے تو بقایا رقم "کسٹمر لیجر" میں شامل ہو جائے گی جو بعد میں وصول کر سکتے ہیں۔
+                </div>
+
+                <h3>رسید (رسید)</h3>
+                <p>رسید پر نظر آئے گا:</p>
+                <ul class="steps-list">
+                    <li>آپ کی دکان کا نام، پتہ، فون</li>
+                    <li>رسید نمبر اور تاریخ</li>
+                    <li>تمام پروڈکٹس کی فہرست</li>
+                    <li>کل رقم</li>
+                    <li>ادائیگی کا طریقہ</li>
+                    <li>شکریہ کا پیغام</li>
+                </ul>
+            </div>
+
+            <!-- Section 7: Customer Management -->
+            <div class="section" id="section7">
+                <h2>7️⃣ کسٹمر مینجمنٹ</h2>
+                
+                <h3>نیا کسٹمر شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "کسٹمرز" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نیا کسٹمر" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                    </tr>
+                    <tr>
+                        <td>نام *</td>
+                        <td>کسٹمر کا مکمل نام</td>
+                    </tr>
+                    <tr>
+                        <td>فون نمبر *</td>
+                        <td>موبائل نمبر</td>
+                    </tr>
+                    <tr>
+                        <td>پتہ</td>
+                        <td>کسٹمر کا پتہ</td>
+                    </tr>
+                    <tr>
+                        <td>ای میل</td>
+                        <td>ای میل ایڈریس</td>
+                    </tr>
+                    <tr>
+                        <td>شروع کا بیلنس</td>
+                        <td>اگر پہلے سے لین دین ہے</td>
+                    </tr>
+                </table>
+
+                <h3>کسٹمر لیجر (حساب کتاب)</h3>
+                <p>ہر کسٹمر کا مکمل حساب رکھیں:</p>
+                <ul class="steps-list">
+                    <li>کل خریداری</li>
+                    <li>کل ادائیگی</li>
+                    <li>بقایا رقم (جتنی کسٹمر نے دینی ہے)</li>
+                    <li>تمام سیلز کی فہرست</li>
+                    <li>ادائیگیوں کی تاریخ</li>
+                </ul>
+
+                <div class="step-box">
+                    <p><strong>کسٹمر سے ادائیگی وصول کرنا:</strong></p>
+                    <p>کسٹمر لیجر > "ادائیگی وصول کریں" > رقم اور طریقہ ڈالیں > محفوظ کریں</p>
+                </div>
+
+                <div class="tip-box">
+                    ادھار (کریڈٹ) پر بیچتے وقت کسٹمر کا فون نمبر لازمی ڈالیں تاکہ بعد میں رابطہ کر سکیں۔
+                </div>
+            </div>
+
+            <!-- Section 8: Banking -->
+            <div class="section" id="section8">
+                <h2>8️⃣ بینکنگ سسٹم</h2>
+                
+                <h3>بینک اکاؤنٹ شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "بینکنگ" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نیا بینک" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> بینک کی معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                    </tr>
+                    <tr>
+                        <td>بینک کا نام *</td>
+                        <td>مثلاً: HBL, UBL, MCB</td>
+                    </tr>
+                    <tr>
+                        <td>اکاؤنٹ نمبر *</td>
+                        <td>آپ کا بینک اکاؤنٹ نمبر</td>
+                    </tr>
+                    <tr>
+                        <td>اکاؤنٹ کا نام</td>
+                        <td>اکاؤنٹ ہولڈر کا نام</td>
+                    </tr>
+                    <tr>
+                        <td>شروع کا بیلنس</td>
+                        <td>اکاؤنٹ میں موجودہ رقم</td>
+                    </tr>
+                </table>
+
+                <h3>بینک میں ادائیگی</h3>
+                <div class="step-box">
+                    <p>سپلائر کو بینک کے ذریعے ادائیگی کرتے وقت:</p>
+                    <p><span class="step-number">1</span> سپلائر لیجر > "ادائیگی کریں"</p>
+                    <p><span class="step-number">2</span> طریقہ: "بینک ٹرانسفر" منتخب کریں</p>
+                    <p><span class="step-number">3</span> بینک اکاؤنٹ منتخب کریں</p>
+                    <p><span class="step-number">4</span> رقم ڈالیں</p>
+                    <p><span class="step-number">5</span> ٹرانزیکشن ID (اگر ہے تو)</p>
+                    <p><span class="step-number">6</span> محفوظ کریں</p>
+                </div>
+
+                <div class="tip-box">
+                    بینک ٹرانزیکشنز کی مکمل تاریخ محفوظ رہتی ہے جسے آپ کسی بھی وقت دیکھ سکتے ہیں۔
+                </div>
+
+                <h3>کیش اور بینک میں ٹرانسفر</h3>
+                <p>آپ کیش سے بینک میں یا بینک سے کیش میں رقم ٹرانسفر کر سکتے ہیں:</p>
+                <ul class="steps-list">
+                    <li>بینکنگ > "رقم ٹرانسفر کریں"</li>
+                    <li>ذریعہ منتخب کریں (کیش یا بینک)</li>
+                    <li>مقصود منتخب کریں (بینک یا کیش)</li>
+                    <li>رقم ڈالیں اور محفوظ کریں</li>
+                </ul>
+            </div>
+
+            <!-- Section 9: Expenses -->
+            <div class="section" id="section9">
+                <h2>9️⃣ اخراجات</h2>
+                
+                <h3>اخراجات کے ہیڈز بنانا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> سیٹنگز > "اخراجات کے ہیڈز"</p>
+                    <p><span class="step-number">2</span> "+ نیا ہیڈ" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> ہیڈ کا نام ڈالیں، مثلاً:</p>
+                    <ul>
+                        <li>بجلی کا بل</li>
+                        <li>کرایہ</li>
+                        <li>ملازمین کی تنخواہ</li>
+                        <li>ٹرانسپورٹ</li>
+                        <li>مرمت</li>
+                        <li>دیگر</li>
+                    </ul>
+                </div>
+
+                <h3>اخراجہ درج کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "اخراجات" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> "+ نیا اخراجہ" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> ہیڈ منتخب کریں</p>
+                    <p><span class="step-number">4</span> رقم ڈالیں</p>
+                    <p><span class="step-number">5</span> تاریخ منتخب کریں</p>
+                    <p><span class="step-number">6</span> تفصیل (اختیاری)</p>
+                    <p><span class="step-number">7</span> محفوظ کریں</p>
+                </div>
+
+                <div class="tip-box">
+                    اخراجات کو باقاعدگی سے درج کریں تاکہ ماہ کے آخر میں اصل منافع کا پتہ چل سکے۔
+                </div>
+
+                <h3>اخراجات کی رپورٹ</h3>
+                <p>آپ دیکھ سکتے ہیں:</p>
+                <ul class="steps-list">
+                    <li>روزانہ کے اخراجات</li>
+                    <li>ماہانہ اخراجات</li>
+                    <li>ہیڈ وار اخراجات (کس چیز پر کتنا خرچ ہوا)</li>
+                    <li>کل اخراجات بمقابلہ کل فروخت</li>
+                </ul>
+            </div>
+
+            <!-- Section 10: Reports -->
+            <div class="section" id="section10">
+                <h2>🔟 رپورٹس</h2>
+                
+                <h3>دستیاب رپورٹس</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="icon">📊</div>
+                        <h4>روزانہ رپورٹ</h4>
+                        <p>آج کی فروخت، اخراجات، منافع</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📅</div>
+                        <h4>ماہانہ رپورٹ</h4>
+                        <p>پورے مہینے کا خلاصہ</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">📦</div>
+                        <h4>اسٹاک رپورٹ</h4>
+                        <p>موجودہ اسٹاک کی تفصیل</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🏆</div>
+                        <h4>بہترین فروخت</h4>
+                        <p>سب سے زیادہ بکنے والی پروڈکٹس</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">⚠️</div>
+                        <h4>کم اسٹاک</h4>
+                        <p>جو پروڈکٹس ختم ہونے والی ہیں</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">💰</div>
+                        <h4>منافع رپورٹ</h4>
+                        <p>حقیقی منافع کا حساب</p>
+                    </div>
+                </div>
+
+                <h3>رپورٹ دیکھنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> مینو سے "رپورٹس" پر کلک کریں</p>
+                    <p><span class="step-number">2</span> رپورٹ کی قسم منتخب کریں</p>
+                    <p><span class="step-number">3</span> تاریخ کی حد منتخب کریں (آج، اس ہفتے، اس مہینے، اپنی مرضی)</p>
+                    <p><span class="step-number">4</span> "دکھائیں" بٹن دبائیں</p>
+                </div>
+
+                <div class="tip-box">
+                    رپورٹس کو آپ پرنٹ کر سکتے ہیں یا PDF کے طور پر محفوظ کر سکتے ہیں۔
+                </div>
+
+                <h3>اہم رپورٹس</h3>
+                <table>
+                    <tr>
+                        <th>رپورٹ</th>
+                        <th>کیا دکھاتی ہے؟</th>
+                    </tr>
+                    <tr>
+                        <td>آئٹم وار سیلز</td>
+                        <td>ہر پروڈکٹ کی کتنی فروخت ہوئی</td>
+                    </tr>
+                    <tr>
+                        <td>کسٹمر لیجر</td>
+                        <td>ہر کسٹمر کا حساب کتاب</td>
+                    </tr>
+                    <tr>
+                        <td>سپلائر لیجر</td>
+                        <td>ہر سپلائر کا حساب کتاب</td>
+                    </tr>
+                    <tr>
+                        <td>کیش بُک</td>
+                        <td>تمام نقد لین دین</td>
+                    </tr>
+                    <tr>
+                        <td>بینک بُک</td>
+                        <td>تمام بینک ٹرانزیکشنز</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Section 11: Employee Management -->
+            <div class="section" id="section11">
+                <h2>1️⃣1️⃣ ایمپلائیر مینجمنٹ</h2>
+                
+                <h3>نیا ملازم شامل کرنا</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> سیٹنگز > "ایمپلائیرز"</p>
+                    <p><span class="step-number">2</span> "+ نیا ایمپلائیر" بٹن دبائیں</p>
+                    <p><span class="step-number">3</span> معلومات بھریں:</p>
+                </div>
+
+                <table>
+                    <tr>
+                        <th>فیلڈ</th>
+                        <th>تفصیل</th>
+                    </tr>
+                    <tr>
+                        <td>نام *</td>
+                        <td>ملازم کا نام</td>
+                    </tr>
+                    <tr>
+                        <td>یوزر نیم *</td>
+                        <td>لاگ ان کے لیے</td>
+                    </tr>
+                    <tr>
+                        <td>پاس ورڈ *</td>
+                        <td>لاگ ان پاس ورڈ</td>
+                    </tr>
+                    <tr>
+                        <td>فون نمبر</td>
+                        <td>رابطہ نمبر</td>
+                    </tr>
+                    <tr>
+                        <td>کردار *</td>
+                        <td>ایڈمن یا کیئر</td>
+                    </tr>
+                </table>
+
+                <h3>کردار (رولز)</h3>
+                <div class="step-box">
+                    <p><strong>ایڈمن:</strong> مکمل رسائی، تمام فیچرز استعمال کر سکتا ہے</p>
+                    <p><strong>کیئر:</strong> صرف سیل (بلنگ) کر سکتا ہے، سیٹنگز تک رسائی نہیں</p>
+                </div>
+
+                <div class="warning-box">
+                    ایمپلائیرز کو صرف کیئر رول دیں جب تک کہ وہ مکمل تربیت یافتہ نہ ہوں۔ ایڈمن رول صرف قابل اعتماد لوگوں کو دیں۔
+                </div>
+
+                <h3>اسٹاف پرفارمنس</h3>
+                <p>آپ دیکھ سکتے ہیں:</p>
+                <ul class="steps-list">
+                    <li>ہر ایمپلائیر نے کتنی فروخت کی</li>
+                    <li>کس شیفت میں کتنی سیلز ہوئیں</li>
+                    <li>کمیشن کا حساب (اگر مقرر ہے)</li>
+                </ul>
+            </div>
+
+            <!-- Section 12: Receipt Settings -->
+            <div class="section" id="section12">
+                <h2>1️⃣2️⃣ رسیٹ (رسید) سیٹنگز</h2>
+                
+                <h3>رسید کی ترتیبات</h3>
+                <div class="step-box">
+                    <p><span class="step-number">1</span> سیٹنگز > "رسید سیٹنگز"</p>
+                    <p><span class="step-number">2</span> درج ذیل تبدیل کر سکتے ہیں:</p>
+                </div>
+
+                <h3>رسید پر کیا نظر آئے گا؟</h3>
+                <ul class="steps-list">
+                    <li>بزنس کا نام (لازمی)</li>
+                    <li>بزنس کا پتہ</li>
+                    <li>فون نمبر</li>
+                    <li>رسید نمبر</li>
+                    <li>تاریخ اور وقت</li>
+                    <li>پروڈکٹس کی فہرست</li>
+                    <li>کل رقم</li>
+                    <li>شکریہ کا پیغام</li>
+                </ul>
+
+                <h3>پرنٹر سیٹنگز</h3>
+                <div class="step-box">
+                    <p><strong>تھرمل پرنٹر (80mm):</strong></p>
+                    <p>سیٹنگز > پرنٹر > پرنٹر کا قسم: "تھرمل"</p>
+                    <br>
+                    <p><strong>ونڈوز پرنٹر (PDF):</strong></p>
+                    <p>خودکار طور پر فعال ہے، کسی سیٹنگ کی ضرورت نہیں</p>
+                </div>
+
+                <div class="tip-box">
+                    رسید کا ڈیزائن آپ "رسید کسٹمائزیشن" سے تبدیل کر سکتے ہیں جہاں آپ لوگو، فونٹ سائز، اور لی آؤٹ تبدیل کر سکتے ہیں۔
+                </div>
+
+                <h3>رسید کا نمونہ</h3>
+                <table>
+                    <tr>
+                        <td style="text-align: center; background: #f8f9fa; font-family: monospace; padding: 20px;">
+                            <div style="text-align: center; border-bottom: 2px dashed #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                <strong style="font-size: 16px;">SALE RECEIPT</strong><br>
+                                <strong style="font-size: 14px;">آپ کی دکان کا نام</strong><br>
+                                دکان کا پتہ یہاں<br>
+                                فون: 0300-1234567
+                            </div>
+                            <div style="border-bottom: 2px dashed #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                <strong>Order # 1001</strong><br>
+                                تاریخ: 25/02/2026 14:30
+                            </div>
+                            <div style="border-bottom: 2px dashed #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                پروڈکٹ A &nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp; 100.000<br>
+                                پروڈکٹ B &nbsp;&nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp; 500.000
+                            </div>
+                            <div style="border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 10px;">
+                                سب ٹوٹل: 700.000<br>
+                                <strong style="font-size: 14px;">کل: روپے 700.000</strong>
+                            </div>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <strong>THANK YOU...</strong>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="section">
+                <h2>💡 فوری تجاویز</h2>
+                
+                <div class="tip-box">
+                    روزانہ کی بنیاد پر بیک اپ لیں تاکہ ڈیٹا محفوظ رہے۔ سیٹنگز > بیک اپ > "بیک اپ بنائیں"
+                </div>
+
+                <div class="tip-box">
+                    کم از کم اسٹاک کی سیٹنگ ضرور کریں تاکہ پروڈکٹ ختم ہونے سے پہلے الرٹ مل جائے۔
+                </div>
+
+                <div class="tip-box">
+                    ہر پرچیز انوائس کی رسید محفوظ کریں تاکہ بعد میں حساب کتاب میں آسانی ہو۔
+                </div>
+
+                <div class="warning-box">
+                    پاس ورڈ کبھی بھی کسی کے ساتھ شیئر نہ کریں۔ اگر ایمپلائیر چلا جائے تو فوراً پاس ورڈ تبدیل کریں۔
+                </div>
+
+                <div class="tip-box">
+                    ماہ کے آخر میں تمام رپورٹس چیک کریں: کل فروخت، کل اخراجات، اصل منافع، اور اسٹاک کی حالت۔
+                </div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div class="section">
+                <h2>🔧 عام مسائل اور حل</h2>
+                
+                <table>
+                    <tr>
+                        <th>مسئلہ</th>
+                        <th>حل</th>
+                    </tr>
+                    <tr>
+                        <td>لاگ ان نہیں ہو رہا</td>
+                        <td>یوزر نیم اور پاس ورڈ چیک کریں۔ اگر بھول گئے ہیں تو "پاس ورڈ بھول گئے" استعمال کریں</td>
+                    </tr>
+                    <tr>
+                        <td>پرنٹر کام نہیں کر رہا</td>
+                        <td>پرنٹر کنکشن چیک کریں۔ سیٹنگز > پرنٹر > دوبارہ منتخب کریں</td>
+                    </tr>
+                    <tr>
+                        <td>بارکوڈ سکین نہیں ہو رہا</td>
+                        <td>بارکوڈ سکینر کی ترتیبات چیک کریں۔ یہ یقینی بنائیں کہ کی بورڈ موڈ میں ہے</td>
+                    </tr>
+                    <tr>
+                        <td>اسٹاک غلط ہے</td>
+                        <td>اسٹاک ایڈجسٹمنٹ استعمال کریں: انوینٹری > "اسٹاک ایڈجسٹ کریں"</td>
+                    </tr>
+                    <tr>
+                        <td>ڈیٹا غائب ہو گیا</td>
+                        <td>بیکاپ سے بحال کریں: سیٹنگز > بیکاپ > "بحال کریں"</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>ریٹیل پوس سسٹم</strong></p>
+            <p>آپ کے کاروبار کا مکمل ڈیجیٹل حل</p>
+            <p style="margin-top: 15px;">© 2026 - جملہ حقوق محفوظ ہیں</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">مدد کے لیے سپورٹ سے رابطہ کریں</p>
+        </div>
+    </div>
+</body>
+</html>

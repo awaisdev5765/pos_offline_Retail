@@ -1,0 +1,4 @@
+Name,Category,Retail Cash,Cost Price,Stock,Barcode,Unit,Reorder Level,Reorder Quantity,Discount,Tax,Description
+iPhone 13,Phones,95000,87000,8,IP13-BLK-128,pcs,3,10,0,0,128GB Black
+Type-C Charger 20W,Accessories,1200,850,40,CHG-TYPEC-20W,pcs,10,25,0,0,Fast charger
+Hair Serum 100ml,Salon Products,850,600,25,HS-100ML-01,pcs,5,15,5,0,Anti-frizz serum
