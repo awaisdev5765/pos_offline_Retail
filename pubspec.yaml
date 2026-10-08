@@ -124,7 +124,6 @@ flutter:
     - assets/app_icon.png
     - assets/translations/
     - assets/images/
-    - assets/icons/
     - assets/sounds/
     - assets/sounds/beep.txt
     - assets/sounds/success.txt

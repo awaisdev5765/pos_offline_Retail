@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'dart:io';
 import '../services/windows_printer_detection_service.dart';
-import '../services/unified_print_service.dart';
+import '../services/unified_print_service.dart' show UnifiedPrintService;
 import '../widgets/universal_app_bar.dart';
 import '../widgets/app_snack_bar.dart';
 
